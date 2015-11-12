@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tablita.controllers.AdminMainController">
+   <children>
+      <VBox layoutX="11.0" layoutY="6.0" prefHeight="753.0" prefWidth="105.0">
+         <children>
+            <VBox prefHeight="96.0" prefWidth="119.0">
+               <children>
+                  <Button fx:id="botonInicio" alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="100.0" textAlignment="CENTER" underline="true" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="93.0" fitWidth="119.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconos/home153.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="S_RESIZE" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio" textAlignment="CENTER" wrappingWidth="120.80338287353516">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <Separator prefHeight="6.0" prefWidth="100.0" />
+            <VBox prefHeight="132.0" prefWidth="121.0">
+               <children>
+                  <Button fx:id="botonEmpleados" mnemonicParsing="false" prefHeight="46.0" prefWidth="100.0">
+                     <graphic>
+                        <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconos/40323.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Empleados" textAlignment="CENTER" wrappingWidth="111.47004699707031">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Separator prefHeight="0.0" prefWidth="123.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="131.0" prefWidth="121.0">
+               <children>
+                  <Button alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="102.0" prefWidth="115.0">
+                     <graphic>
+                        <ImageView fitHeight="88.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconos/retail-1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Productos" textAlignment="CENTER" wrappingWidth="120.80338287353516">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Separator prefWidth="200.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="131.0" prefWidth="121.0">
+               <children>
+                  <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="115.0" textAlignment="CENTER" underline="true" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="83.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconos/lunch4.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="S_RESIZE" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menú" textAlignment="CENTER" wrappingWidth="120.80338287353516">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Separator prefWidth="200.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="100.0" textAlignment="CENTER" underline="true" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="93.0" fitWidth="119.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconos/Gente.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="S_RESIZE" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Clientes" textAlignment="CENTER" wrappingWidth="120.80338287353516">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Separator prefWidth="200.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="100.0" textAlignment="CENTER" underline="true" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="93.0" fitWidth="119.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconos/fijo-n.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="S_RESIZE" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reservaciones" textAlignment="CENTER" wrappingWidth="120.80338287353516">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Separator prefWidth="200.0" />
+         </children>
+      </VBox>
+      <ImageView fitHeight="802.0" fitWidth="797.0" layoutX="167.0" layoutY="48.0" opacity="0.12" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@iconos/Logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

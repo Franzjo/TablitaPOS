@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - TablitaDB@localhost" uuid="ca73a489-daf4-4988-a378-26750e4b74c8">
+    <database-info product="MySQL" version="5.5.44-0+deb8u1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.2">
+      <schema id="1" name="TablitaDB"/>
+      <table id="2" parent="1" name="Clientes"/>
+      <table id="3" parent="1" name="Configs"/>
+      <table id="4" parent="1" name="DetallesVentas"/>
+      <table id="5" parent="1" name="Menu"/>
+      <table id="6" parent="1" name="MenuProducto"/>
+      <table id="7" parent="1" name="Mesas"/>
+      <table id="8" parent="1" name="Productos"/>
+      <table id="9" parent="1" name="Reservaciones"/>
+      <table id="10" parent="1" name="Roles"/>
+      <table id="11" parent="1" name="Salas"/>
+      <table id="12" parent="1" name="Usuarios"/>
+      <table id="13" parent="1" name="Ventas"/>
+      <column id="14" parent="2" name="idClientes">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="15" parent="2" name="nombre">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="16" parent="2" name="apellido">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="17" parent="2" name="numeroTelefono">
+        <data-type>int(8)</data-type>
+      </column>
+      <key id="18" parent="2" name="PRIMARY">
+        <columns>idClientes</columns>
+        <primary>1</primary>
+      </key>
+      <column id="19" parent="3" name="idConfigs">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="20" parent="3" name="Reserva_max">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="21" parent="3" name="PRIMARY">
+        <columns>idConfigs</columns>
+        <primary>1</primary>
+      </key>
+      <column id="22" parent="4" name="idDetallesVentas">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="23" parent="4" name="idProductos">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="24" parent="4" name="cantidad">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <column id="25" parent="4" name="idVentas">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="26" parent="4" name="PRIMARY">
+        <columns>idDetallesVentas</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="27" parent="4" name="fk_DetallesVentas_Ventas1">
+        <columns>idVentas</columns>
+        <ref-key>Ventas.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="28" parent="4" name="fk_Ordenes_Productos1">
+        <columns>idProductos</columns>
+        <ref-key>Productos.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="29" parent="5" name="idMenu">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="30" parent="5" name="nombre">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="31" parent="5" name="area">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="32" parent="5" name="PRIMARY">
+        <columns>idMenu</columns>
+        <primary>1</primary>
+      </key>
+      <column id="33" parent="6" name="idMenuProducto">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="34" parent="6" name="idMenu">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="35" parent="6" name="idProductos">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="36" parent="6" name="PRIMARY">
+        <columns>idMenuProducto</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="37" parent="6" name="fk_MenuProducto_Menu">
+        <columns>idMenu</columns>
+        <ref-key>Menu.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="38" parent="6" name="fk_MenuProducto_Productos1">
+        <columns>idProductos</columns>
+        <ref-key>Productos.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="39" parent="7" name="idMesa">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="40" parent="7" name="area">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="41" parent="7" name="descripcion">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="42" parent="7" name="numeroMesa">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="43" parent="7" name="PRIMARY">
+        <columns>idMesa</columns>
+        <primary>1</primary>
+      </key>
+      <column id="44" parent="8" name="idProductos">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="45" parent="8" name="item">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="46" parent="8" name="precio">
+        <mandatory>1</mandatory>
+        <data-type>decimal(8,2)</data-type>
+      </column>
+      <column id="47" parent="8" name="existencia">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="48" parent="8" name="tipo">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="49" parent="8" name="gravado">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <key id="50" parent="8" name="PRIMARY">
+        <columns>idProductos</columns>
+        <primary>1</primary>
+      </key>
+      <column id="51" parent="9" name="idReservas">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="52" parent="9" name="hora">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="53" parent="9" name="idClientes">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="54" parent="9" name="idMesa">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="55" parent="9" name="idSalas">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="56" parent="9" name="PRIMARY">
+        <columns>idReservas
+idClientes
+idMesa
+idSalas</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="57" parent="9" name="fk_Reservaciones_Clientes1">
+        <columns>idClientes</columns>
+        <ref-key>Clientes.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="58" parent="9" name="fk_Reservaciones_Mesas1">
+        <columns>idMesa</columns>
+        <ref-key>Mesas.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="59" parent="9" name="fk_Reservaciones_Salas1">
+        <columns>idSalas</columns>
+        <ref-key>Salas.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="60" parent="10" name="idRol">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="61" parent="10" name="nombre">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="62" parent="10" name="PRIMARY">
+        <columns>idRol</columns>
+        <primary>1</primary>
+      </key>
+      <column id="63" parent="11" name="idSalas">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="64" parent="11" name="nombre">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="65" parent="11" name="PRIMARY">
+        <columns>idSalas</columns>
+        <primary>1</primary>
+      </key>
+      <column id="66" parent="12" name="idUsuario">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="67" parent="12" name="codigo">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="68" parent="12" name="nombres">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="69" parent="12" name="apellidos">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="70" parent="12" name="pass">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="71" parent="12" name="DUI">
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="72" parent="12" name="NIT">
+        <data-type>varchar(14)</data-type>
+      </column>
+      <column id="73" parent="12" name="TEL">
+        <data-type>int(8)</data-type>
+      </column>
+      <column id="74" parent="12" name="idRol">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="75" parent="12" name="PRIMARY">
+        <columns>idUsuario</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="76" parent="12" name="fk_Empleados_Roles1">
+        <columns>idRol</columns>
+        <ref-key>Roles.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="77" parent="13" name="idVentas">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="78" parent="13" name="idUsuario">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="79" parent="13" name="idMesa">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="80" parent="13" name="fechaHora">
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="81" parent="13" name="total">
+        <data-type>decimal(10,2)</data-type>
+      </column>
+      <column id="82" parent="13" name="importe">
+        <data-type>decimal(10,2)</data-type>
+      </column>
+      <column id="83" parent="13" name="cambio">
+        <data-type>decimal(10,2)</data-type>
+      </column>
+      <key id="84" parent="13" name="PRIMARY">
+        <columns>idVentas</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="85" parent="13" name="fk_Venta_Mesas1">
+        <columns>idMesa</columns>
+        <ref-key>Mesas.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="86" parent="13" name="fk_Venta_Usuarios1">
+        <columns>idUsuario</columns>
+        <ref-key>Usuarios.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>

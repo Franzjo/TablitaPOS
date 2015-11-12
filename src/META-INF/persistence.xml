@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+
+  <!-- <persistence-unit name="TablitaPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>tablita.persistencia.Mesas</class>
+    <class>tablita.persistencia.DetallesVentas</class>
+    <class>tablita.persistencia.Menu</class>
+    <class>tablita.persistencia.MenuProducto</class>
+    <class>tablita.persistencia.Salas</class>
+    <class>tablita.persistencia.Clientes</class>
+    <class>tablita.persistencia.Reservaciones</class>
+    <class>tablita.persistencia.Configs</class>
+    <class>tablita.persistencia.Productos</class>
+    <class>tablita.persistencia.Ventas</class>
+    <class>tablita.persistencia.Usuarios</class>
+    <class>tablita.persistencia.Roles</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/TablitaDB?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.password" value="isss"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+    </properties>
+  </persistence-unit>-->
+
+
+  <persistence-unit name="TablitaPOSPU">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>tablita.persistencia.Clientes</class>
+    <class>tablita.persistencia.Configs</class>
+    <class>tablita.persistencia.DetallesVentas</class>
+    <class>tablita.persistencia.Menu</class>
+    <class>tablita.persistencia.MenuProducto</class>
+    <class>tablita.persistencia.Mesas</class>
+    <class>tablita.persistencia.Productos</class>
+    <class>tablita.persistencia.Reservaciones</class>
+    <class>tablita.persistencia.Roles</class>
+    <class>tablita.persistencia.Salas</class>
+    <class>tablita.persistencia.Usuarios</class>
+    <class>tablita.persistencia.Ventas</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/TablitaDB"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.password" value="isss"/>
+    </properties>
+  </persistence-unit>
+</persistence>

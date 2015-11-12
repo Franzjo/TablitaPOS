@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER" layoutX="3.0" layoutY="16.0" prefHeight="554.0" prefWidth="121.0">
+         <children>
+            <ImageView fitHeight="111.0" fitWidth="126.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/Logo.png" />
+               </image>
+            </ImageView>
+            <Separator prefHeight="26.0" prefWidth="121.0" />
+            <Button mnemonicParsing="false" prefHeight="101.0" prefWidth="121.0" text="Inicio" />
+            <Separator prefHeight="16.0" prefWidth="121.0" />
+            <Button mnemonicParsing="false" prefHeight="101.0" prefWidth="121.0" text="Cambiar Mesa" />
+            <Separator prefHeight="19.0" prefWidth="121.0" />
+            <Button mnemonicParsing="false" prefHeight="101.0" prefWidth="121.0" text="Cancelar" />
+         </children>
+      </VBox>
+      <VBox layoutX="633.0" layoutY="391.0" prefHeight="208.0" prefWidth="53.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="1" />
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="4" />
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="7" />
+         </children>
+      </VBox>
+      <VBox layoutX="689.0" layoutY="390.0" prefHeight="208.0" prefWidth="53.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="2" />
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="5" />
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="8" />
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="0" />
+         </children>
+      </VBox>
+      <VBox layoutX="745.0" layoutY="389.0" prefHeight="208.0" prefWidth="53.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="3" />
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="6" />
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="7" />
+         </children>
+      </VBox>
+      <TextArea layoutX="148.0" layoutY="48.0" prefHeight="535.0" prefWidth="212.0" text="Descripción    |    Cant    |  Importe" />
+      <Separator layoutX="632.0" layoutY="373.0" prefHeight="15.0" prefWidth="165.0" />
+      <TextField layoutX="670.0" layoutY="345.0" prefHeight="25.0" prefWidth="91.0" />
+      <VBox layoutX="373.0" layoutY="49.0" prefHeight="356.0" prefWidth="99.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Entradas" />
+            <Separator prefHeight="16.0" prefWidth="68.0" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Plato Fuerte" />
+            <Separator prefHeight="16.0" prefWidth="68.0" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Combos" />
+            <Separator prefHeight="15.0" prefWidth="68.0" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Bebidas Frias" />
+            <Separator prefHeight="15.0" prefWidth="68.0" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Postres" />
+            <Separator prefHeight="15.0" prefWidth="68.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="373.0" layoutY="494.0" prefHeight="89.0" prefWidth="100.0">
+         <children>
+            <VBox prefHeight="92.0" prefWidth="100.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="84.0" prefWidth="101.0" text="Enviar Pedio" />
+               </children>
+            </VBox>
+         </children></VBox>
+      <Text layoutX="373.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categorias" textAlignment="CENTER" wrappingWidth="99.00000393390656" />
+      <Text layoutX="148.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mesa:" />
+      <Text layoutX="217.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora/Fecha" />
+   </children>
+</Pane>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="162.0" layoutY="70.0" prefHeight="505.0" prefWidth="119.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 1" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 2" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 3" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 4" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 5" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 6" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 7" />
+         </children>
+      </VBox>
+      <VBox layoutX="281.0" layoutY="70.0" prefHeight="505.0" prefWidth="119.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 8" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 9" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 10" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 11" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 12" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 13" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A14" />
+         </children>
+      </VBox>
+      <VBox layoutX="400.0" layoutY="70.0" prefHeight="505.0" prefWidth="119.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 15" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 16 " />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 17" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 18" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 19 " />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 20 " />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 21" />
+         </children>
+      </VBox>
+      <VBox layoutX="519.0" layoutY="70.0" prefHeight="505.0" prefWidth="119.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 22" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 23" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 24" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 25" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 26" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 27 " />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 28" />
+         </children>
+      </VBox>
+      <VBox layoutX="638.0" layoutY="70.0" prefHeight="505.0" prefWidth="119.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 29" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 30" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 31" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 32" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 33" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 34" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="118.0" text="A 35" />
+         </children>
+      </VBox>
+      <ImageView fitHeight="131.0" fitWidth="142.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes/Logo.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="409.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ÁREA 1" textAlignment="CENTER" wrappingWidth="100.484375">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>
