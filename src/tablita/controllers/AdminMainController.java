@@ -37,7 +37,7 @@ public class AdminMainController {
 
     private void bntEmpleados(ActionEvent event){
         try {
-            Parent adminEmpleados = FXMLLoader.load(getClass().getResource("../views/administrador/VistaAdministrador.fxml"));
+            Parent adminEmpleados = FXMLLoader.load(getClass().getResource("../views/administrador/VistaAdministradorEmpleado.fxml"));
             ViewsManager.cambiarVentana("TablitaPOS - Empleados", adminEmpleados);
         } catch (IOException e) {
             e.printStackTrace();

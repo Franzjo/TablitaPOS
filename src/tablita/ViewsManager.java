@@ -21,6 +21,7 @@ public class ViewsManager {
     public static void cambiarVentana(String titulo, Parent parent){
         stage.setTitle(titulo);
         stage.setScene(new Scene(parent, 1024,768));
+        //FlatterFX.style();
         stage.show();
     }
 }

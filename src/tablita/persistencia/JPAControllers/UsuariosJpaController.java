@@ -102,12 +102,16 @@ public class UsuariosJpaController implements Serializable {
                 usuarios.setIdRol(idRolNew);
             }
             Collection<Ventas> attachedVentasCollectionNew = new ArrayList<Ventas>();
-            for (Ventas ventasCollectionNewVentasToAttach : ventasCollectionNew) {
-                ventasCollectionNewVentasToAttach = em.getReference(ventasCollectionNewVentasToAttach.getClass(), ventasCollectionNewVentasToAttach.getIdVentas());
-                attachedVentasCollectionNew.add(ventasCollectionNewVentasToAttach);
+            if(ventasCollectionNew != null){
+
+
+                for (Ventas ventasCollectionNewVentasToAttach : ventasCollectionNew) {
+                    ventasCollectionNewVentasToAttach = em.getReference(ventasCollectionNewVentasToAttach.getClass(), ventasCollectionNewVentasToAttach.getIdVentas());
+                    attachedVentasCollectionNew.add(ventasCollectionNewVentasToAttach);
+                }
+                ventasCollectionNew = attachedVentasCollectionNew;
+                usuarios.setVentasCollection(ventasCollectionNew);
             }
-            ventasCollectionNew = attachedVentasCollectionNew;
-            usuarios.setVentasCollection(ventasCollectionNew);
             usuarios = em.merge(usuarios);
             if (idRolOld != null && !idRolOld.equals(idRolNew)) {
                 idRolOld.getUsuariosCollection().remove(usuarios);
@@ -117,14 +121,17 @@ public class UsuariosJpaController implements Serializable {
                 idRolNew.getUsuariosCollection().add(usuarios);
                 idRolNew = em.merge(idRolNew);
             }
-            for (Ventas ventasCollectionNewVentas : ventasCollectionNew) {
-                if (!ventasCollectionOld.contains(ventasCollectionNewVentas)) {
-                    Usuarios oldIdUsuarioOfVentasCollectionNewVentas = ventasCollectionNewVentas.getIdUsuario();
-                    ventasCollectionNewVentas.setIdUsuario(usuarios);
-                    ventasCollectionNewVentas = em.merge(ventasCollectionNewVentas);
-                    if (oldIdUsuarioOfVentasCollectionNewVentas != null && !oldIdUsuarioOfVentasCollectionNewVentas.equals(usuarios)) {
-                        oldIdUsuarioOfVentasCollectionNewVentas.getVentasCollection().remove(ventasCollectionNewVentas);
-                        oldIdUsuarioOfVentasCollectionNewVentas = em.merge(oldIdUsuarioOfVentasCollectionNewVentas);
+            if(ventasCollectionNew != null){
+
+                for (Ventas ventasCollectionNewVentas : ventasCollectionNew) {
+                    if (!ventasCollectionOld.contains(ventasCollectionNewVentas)) {
+                        Usuarios oldIdUsuarioOfVentasCollectionNewVentas = ventasCollectionNewVentas.getIdUsuario();
+                        ventasCollectionNewVentas.setIdUsuario(usuarios);
+                        ventasCollectionNewVentas = em.merge(ventasCollectionNewVentas);
+                        if (oldIdUsuarioOfVentasCollectionNewVentas != null && !oldIdUsuarioOfVentasCollectionNewVentas.equals(usuarios)) {
+                            oldIdUsuarioOfVentasCollectionNewVentas.getVentasCollection().remove(ventasCollectionNewVentas);
+                            oldIdUsuarioOfVentasCollectionNewVentas = em.merge(oldIdUsuarioOfVentasCollectionNewVentas);
+                        }
                     }
                 }
             }

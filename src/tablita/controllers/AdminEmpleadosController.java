@@ -4,17 +4,23 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import tablita.CreadorEntityManager;
 import tablita.RolesFactory;
+import tablita.ViewsManager;
 import tablita.persistencia.JPAControllers.UsuariosJpaController;
+import tablita.persistencia.JPAControllers.exceptions.IllegalOrphanException;
+import tablita.persistencia.JPAControllers.exceptions.NonexistentEntityException;
 import tablita.persistencia.Usuarios;
 
 import javax.persistence.EntityManagerFactory;
+import java.io.IOException;
 import java.util.Optional;
 
 /**
@@ -42,12 +48,16 @@ public class AdminEmpleadosController {
     @FXML
     Button botonNuevo;
     @FXML
+    Button botonInicio;
+
+
+    @FXML
     Button botonActualizar;
 
 
-
-
     private ObservableList<Usuarios> empleados = FXCollections.observableArrayList(ujpa.findByRole(RolesFactory.empleado()));
+
+
 
     public AdminEmpleadosController() {
     }
@@ -88,17 +98,36 @@ public class AdminEmpleadosController {
             result.ifPresent(usuario -> {
                 empleado[0] = usuario;
                 try {
+                    System.out.println(empleado[0].getNombres());
+                    System.out.println(empleado[0].getApellidos());
+                    System.out.println(empleado[0].getNit());
                     int id = ujpa.findByCodigo(empleado[0].getCodigo()).getIdUsuario();
                     empleado[0].setIdUsuario(id);
                     ujpa.edit(empleado[0]);
+                } catch (NonexistentEntityException e) {
+                    e.printStackTrace();
+                } catch (IllegalOrphanException e) {
+                    e.printStackTrace();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
             });
+            empleados = FXCollections.observableArrayList(ujpa.findByRole(RolesFactory.empleado()));
+            viewEmpleados.getItems().clear();
+            viewEmpleados.setItems(empleados);
 
         });
 
+        botonInicio.setOnAction(event -> {
+            try {
+                Parent parent = FXMLLoader.load(getClass().getResource("../views/administrador/VistaAdministrador.fxml"));
+                ViewsManager.cambiarVentana("TablitaPOS", parent);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
 
         viewEmpleados.setItems(empleados);
     }
@@ -111,7 +140,24 @@ public class AdminEmpleadosController {
             this.dui.setText(dui);
             this.nit.setText(nit);
             this.tel.setText(tel);
-            botonCrear = new ButtonType("Actualizar", ButtonBar.ButtonData.OK_DONE);
+            //botonCrear = new ButtonType("Actualizar", ButtonBar.ButtonData.OK_DONE);
+
+            this.setResultConverter(dialogButton -> {
+                if(dialogButton == botonCrear){
+                    Usuarios u = new Usuarios();
+                    //u.setCodigo(this.codigo(this.nombres.getText(),this.apellidos.getText(),this.nit.getText()));
+                    u.setCodigo("oo");
+                    u.setNombres(this.nombres.getText());
+                    u.setApellidos(this.apellidos.getText());
+                    u.setDui(Integer.valueOf(this.dui.getText()));
+                    u.setNit(this.nit.getText());
+                    u.setTel(Integer.valueOf(this.tel.getText()));
+                    u.setIdRol(RolesFactory.empleado());
+                    return u;
+                }
+                return null;
+            });
+
         }
     }
 
@@ -201,7 +247,7 @@ public class AdminEmpleadosController {
             });
         }
 
-        private String codigo (String nombre, String apellido, String nit){
+        public String codigo (String nombre, String apellido, String nit){
             String cod = String.valueOf(nombre.charAt(0));
             cod = cod + String.valueOf(apellido.charAt(0));
             cod = cod + nit.substring(4,8);

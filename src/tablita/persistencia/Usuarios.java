@@ -49,7 +49,7 @@ public class Usuarios implements Serializable {
     private String nit;
     @Column(name = "TEL")
     private Integer tel;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUsuario")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUsuario", fetch = FetchType.EAGER)
     private Collection<Ventas> ventasCollection;
     @JoinColumn(name = "idRol", referencedColumnName = "idRol")
     @ManyToOne(optional = false)

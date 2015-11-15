@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tablita.controllers.EmpleadoOrden">
    <children>
       <VBox alignment="CENTER" layoutX="3.0" layoutY="16.0" prefHeight="554.0" prefWidth="121.0">
          <children>
@@ -16,11 +16,11 @@
                </image>
             </ImageView>
             <Separator prefHeight="26.0" prefWidth="121.0" />
-            <Button mnemonicParsing="false" prefHeight="101.0" prefWidth="121.0" text="Inicio" />
+            <Button fx:id="botonInicio" mnemonicParsing="false" prefHeight="101.0" prefWidth="121.0" text="Inicio" />
             <Separator prefHeight="16.0" prefWidth="121.0" />
-            <Button mnemonicParsing="false" prefHeight="101.0" prefWidth="121.0" text="Cambiar Mesa" />
+            <Button fx:id="botonMesa" mnemonicParsing="false" prefHeight="101.0" prefWidth="121.0" text="Cambiar Mesa" />
             <Separator prefHeight="19.0" prefWidth="121.0" />
-            <Button mnemonicParsing="false" prefHeight="101.0" prefWidth="121.0" text="Cancelar" />
+            <Button fx:id="botonCancelar" mnemonicParsing="false" prefHeight="101.0" prefWidth="121.0" text="Cancelar" />
          </children>
       </VBox>
       <VBox layoutX="633.0" layoutY="391.0" prefHeight="208.0" prefWidth="53.0">
@@ -45,28 +45,34 @@
             <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="7" />
          </children>
       </VBox>
-      <TextArea layoutX="148.0" layoutY="48.0" prefHeight="535.0" prefWidth="212.0" text="Descripción    |    Cant    |  Importe" />
+      <TableView fx:id="tablaProductos" layoutX="148.0" layoutY="52.0" prefHeight="510.0" prefWidth="300.0">
+         <columns>
+            <TableColumn fx:id="descripcion" prefWidth="94.0" text="Descripción" />
+            <TableColumn fx:id="cantidad" prefWidth="46.0" text="Cant" />
+            <TableColumn fx:id="importe" prefWidth="85.0" text="Importe" />
+         </columns>
+      </TableView>
       <Separator layoutX="632.0" layoutY="373.0" prefHeight="15.0" prefWidth="165.0" />
       <TextField layoutX="670.0" layoutY="345.0" prefHeight="25.0" prefWidth="91.0" />
-      <VBox layoutX="373.0" layoutY="49.0" prefHeight="356.0" prefWidth="99.0">
+      <VBox layoutX="473.0" layoutY="49.0" prefHeight="356.0" prefWidth="99.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Entradas" />
+            <Button fx:id="botonEntrada" mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Entradas" />
             <Separator prefHeight="16.0" prefWidth="68.0" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Plato Fuerte" />
+            <Button fx:id="botonPlatoFuerte" mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Plato Fuerte" />
             <Separator prefHeight="16.0" prefWidth="68.0" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Combos" />
+            <Button fx:id="botonCombos" mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Combos" />
             <Separator prefHeight="15.0" prefWidth="68.0" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Bebidas Frias" />
+            <Button fx:id="botonFrias" mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Bebidas Frias" />
             <Separator prefHeight="15.0" prefWidth="68.0" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Postres" />
+            <Button fx:id="botonPostres" mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Postres" />
             <Separator prefHeight="15.0" prefWidth="68.0" />
          </children>
       </VBox>
-      <VBox layoutX="373.0" layoutY="494.0" prefHeight="89.0" prefWidth="100.0">
+      <VBox layoutX="473.0" layoutY="494.0" prefHeight="89.0" prefWidth="100.0">
          <children>
             <VBox prefHeight="92.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="84.0" prefWidth="101.0" text="Enviar Pedio" />
+                  <Button fx:id="bontonEnviar" mnemonicParsing="false" prefHeight="84.0" prefWidth="101.0" text="Enviar Pedido" />
                </children>
             </VBox>
          </children></VBox>

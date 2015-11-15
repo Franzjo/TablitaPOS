@@ -23,8 +23,7 @@
             <Button mnemonicParsing="false" prefHeight="101.0" prefWidth="121.0" text="Cancelar" />
          </children>
       </VBox>
-      <TextArea layoutX="148.0" layoutY="48.0" prefHeight="535.0" prefWidth="212.0" text="Descripción    |    Cant    |  Importe" />
-      <VBox layoutX="373.0" layoutY="49.0" prefHeight="350.0" prefWidth="99.0">
+      <VBox layoutX="391.0" layoutY="52.0" prefHeight="350.0" prefWidth="99.0">
          <children>
             <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Entradas" />
             <Separator prefHeight="16.0" prefWidth="68.0" />
@@ -38,26 +37,33 @@
             <Separator prefHeight="15.0" prefWidth="68.0" />
          </children>
       </VBox>
-      <VBox layoutX="373.0" layoutY="494.0" prefHeight="89.0" prefWidth="100.0">
+      <VBox layoutX="391.0" layoutY="489.0" prefHeight="81.0" prefWidth="100.0">
          <children>
-            <VBox prefHeight="92.0" prefWidth="100.0">
+            <VBox prefHeight="79.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="84.0" prefWidth="101.0" text="Enviar Pedio" />
+                  <Button mnemonicParsing="false" prefHeight="91.0" prefWidth="100.0" text="Enviar Pedido" />
                </children>
             </VBox>
          </children></VBox>
-      <Text layoutX="373.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categorias" textAlignment="CENTER" wrappingWidth="99.00000393390656" />
+      <Text layoutX="391.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categorias" textAlignment="CENTER" wrappingWidth="99.00000393390656" />
       <Text layoutX="148.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mesa:" />
       <Text layoutX="217.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora/Fecha" />
-      <Button layoutX="396.0" layoutY="402.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="46.0" text="+">
+      <Button layoutX="417.0" layoutY="402.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="46.0" text="+">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="396.0" layoutY="443.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="46.0" text="-">
+      <Button layoutX="417.0" layoutY="443.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="46.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
+      <TableView layoutX="148.0" layoutY="52.0" prefHeight="510.0" prefWidth="223.0">
+        <columns>
+          <TableColumn prefWidth="94.0" text="Descripción" />
+          <TableColumn prefWidth="46.0" text="Cant" />
+            <TableColumn prefWidth="85.0" text="Importe" />
+        </columns>
+      </TableView>
    </children>
 </Pane>

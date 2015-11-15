@@ -16,7 +16,11 @@ public class RolesFactory {
 
     private static EntityManagerFactory emf = CreadorEntityManager.emf();
     private static tablita.persistencia.JPAControllers.RolesJpaController rolesJpa = new RolesJpaController(emf);
-    static List<Roles> roles = rolesJpa.findRolesEntities();
+    static List<Roles>
+        roles = rolesJpa.findRolesEntities();
+
+    public static void initialize(){
+    }
 
     public static Roles empleado (){
         for (Roles r: roles) {
