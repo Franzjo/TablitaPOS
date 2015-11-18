@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tablita.controllers.EmpleadoOrden">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tablita.controllers.EmpleadoOrden">
    <children>
       <VBox alignment="CENTER" layoutX="3.0" layoutY="16.0" prefHeight="554.0" prefWidth="121.0">
          <children>
@@ -47,9 +47,9 @@
       </VBox>
       <TableView fx:id="tablaProductos" layoutX="148.0" layoutY="52.0" prefHeight="510.0" prefWidth="300.0">
          <columns>
-            <TableColumn fx:id="descripcion" prefWidth="94.0" text="Descripción" />
-            <TableColumn fx:id="cantidad" prefWidth="46.0" text="Cant" />
-            <TableColumn fx:id="importe" prefWidth="85.0" text="Importe" />
+            <TableColumn fx:id="descripcion" prefWidth="177.0" text="Descripción" />
+            <TableColumn fx:id="cantidad" prefWidth="43.0" text="Cant" />
+            <TableColumn fx:id="importe" prefWidth="79.0" text="Importe" />
          </columns>
       </TableView>
       <Separator layoutX="632.0" layoutY="373.0" prefHeight="15.0" prefWidth="165.0" />
@@ -76,8 +76,9 @@
                </children>
             </VBox>
          </children></VBox>
-      <Text layoutX="373.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categorias" textAlignment="CENTER" wrappingWidth="99.00000393390656" />
+      <Text layoutX="473.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categorias" textAlignment="CENTER" wrappingWidth="99.00000393390656" />
       <Text layoutX="148.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mesa:" />
       <Text layoutX="217.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora/Fecha" />
+      <ListView fx:id="productosListView" layoutX="589.0" layoutY="49.0" prefHeight="290.0" prefWidth="200.0" />
    </children>
 </Pane>

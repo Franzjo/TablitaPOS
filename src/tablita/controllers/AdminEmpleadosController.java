@@ -49,15 +49,10 @@ public class AdminEmpleadosController {
     Button botonNuevo;
     @FXML
     Button botonInicio;
-
-
     @FXML
     Button botonActualizar;
 
-
     private ObservableList<Usuarios> empleados = FXCollections.observableArrayList(ujpa.findByRole(RolesFactory.empleado()));
-
-
 
     public AdminEmpleadosController() {
     }

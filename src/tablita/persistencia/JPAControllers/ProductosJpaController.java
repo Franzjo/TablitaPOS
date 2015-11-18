@@ -5,21 +5,19 @@
  */
 package tablita.persistencia.JPAControllers;
 
-import java.io.Serializable;
-import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import tablita.persistencia.DetallesVentas;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import tablita.persistencia.JPAControllers.exceptions.IllegalOrphanException;
 import tablita.persistencia.JPAControllers.exceptions.NonexistentEntityException;
 import tablita.persistencia.MenuProducto;
 import tablita.persistencia.Productos;
+
+import javax.persistence.*;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -250,6 +248,17 @@ public class ProductosJpaController implements Serializable {
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
+
+    public List<Productos> getProductosByTipo(String tipo){
+        EntityManager em = getEntityManager();
+        try{
+            TypedQuery<Productos> query = em.createNamedQuery("Productos.findByTipo",Productos.class);
+            query.setParameter("tipo",tipo);
+            return query.getResultList();
         } finally {
             em.close();
         }
