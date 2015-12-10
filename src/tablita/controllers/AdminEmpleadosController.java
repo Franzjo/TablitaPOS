@@ -135,7 +135,7 @@ public class AdminEmpleadosController {
             this.dui.setText(dui);
             this.nit.setText(nit);
             this.tel.setText(tel);
-            //botonCrear = new ButtonType("Actualizar", ButtonBar.ButtonData.OK_DONE);
+            //botonCambiarMesa = new ButtonType("Actualizar", ButtonBar.ButtonData.OK_DONE);
 
             this.setResultConverter(dialogButton -> {
                 if(dialogButton == botonCrear){

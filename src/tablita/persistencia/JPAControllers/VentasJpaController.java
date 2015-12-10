@@ -5,22 +5,20 @@
  */
 package tablita.persistencia.JPAControllers;
 
-import java.io.Serializable;
-import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
+import tablita.persistencia.DetallesVentas;
+import tablita.persistencia.JPAControllers.exceptions.IllegalOrphanException;
+import tablita.persistencia.JPAControllers.exceptions.NonexistentEntityException;
+import tablita.persistencia.Mesas;
+import tablita.persistencia.Usuarios;
+import tablita.persistencia.Ventas;
+
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import tablita.persistencia.Usuarios;
-import tablita.persistencia.Mesas;
-import tablita.persistencia.DetallesVentas;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import tablita.persistencia.JPAControllers.exceptions.IllegalOrphanException;
-import tablita.persistencia.JPAControllers.exceptions.NonexistentEntityException;
-import tablita.persistencia.Ventas;
 
 /**
  *
@@ -258,5 +256,42 @@ public class VentasJpaController implements Serializable {
             em.close();
         }
     }
-    
+
+    public List<Integer> findMesasActivas(){
+        EntityManager em = getEntityManager();
+        try {
+            TypedQuery<Integer> query = em.createQuery("select m.idMesa from Mesas m " +
+                            "join Ventas v on v.idMesa.idMesa = m.idMesa " +
+                            "where v.activa = true"
+                    ,Integer.class);
+            return query.getResultList();
+        }finally {
+            em.close();
+        }
+    }
+
+    public List<Integer> findMesasDisponibles(int numMesas){
+        EntityManager em = getEntityManager();
+        try {
+            TypedQuery<Integer> query = em.createQuery("select m.idMesa from Mesas m " +
+                            "join Ventas v on v.idMesa.idMesa = m.idMesa " +
+                            "where v.activa = false " +
+                            "and m.idMesa <= :mm "
+                    ,Integer.class);
+            query.setParameter("mm", numMesas);
+            return query.getResultList();
+        }finally {
+            em.close();
+        }
+    }
+
+    public List<Ventas> findActivas(){
+        EntityManager em = getEntityManager();
+        try {
+            TypedQuery<Ventas> query = em.createQuery("select v from Ventas v where v.activa = true",Ventas.class);
+            return query.getResultList();
+        }finally {
+            em.close();
+        }
+    }
 }

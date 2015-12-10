@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@Imagenes/estilo.css" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tablita.controllers.CajeroOrdenController">
+   <children>
+      <VBox alignment="CENTER" layoutY="40.0" prefHeight="728.0" prefWidth="176.0" spacing="10" styleClass="menu-izquierdo">
+         <children>
+            <ImageView fitHeight="223.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/Logo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="botonInicio" mnemonicParsing="false" prefHeight="85.0" prefWidth="146.0" text="Inicio">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonReservas" mnemonicParsing="false" prefHeight="85.0" prefWidth="146.0" text="Reserva">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonClientes" mnemonicParsing="false" prefHeight="85.0" prefWidth="146.0" text="Clientes">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <TableView fx:id="listaProductos" layoutX="184.0" layoutY="46.0" prefHeight="600.0" prefWidth="500.0">
+         <columns>
+            <TableColumn fx:id="descripcion" prefWidth="275.0" text="Descripción" />
+            <TableColumn fx:id="cantidad" prefWidth="74.0" text="Cantidad" />
+            <TableColumn fx:id="unitario" prefWidth="74.0" text="Unitario" />
+            <TableColumn fx:id="total_actual" prefWidth="74.0" text="Total" />
+         </columns>
+      </TableView>
+      <VBox alignment="CENTER" layoutX="785.0" layoutY="357.0" prefHeight="298.0" prefWidth="149.0" spacing="10">
+         <children>
+            <Slider fx:id="sliderTipo" blockIncrement="1.0" majorTickUnit="1.0" max="1.0" minorTickCount="0" showTickMarks="true" snapToTicks="true" />
+            <Button fx:id="botonFormaPago" mnemonicParsing="false" prefHeight="85.0" prefWidth="146.0" text="Forma de Pago" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonCobrar" mnemonicParsing="false" prefHeight="85.0" prefWidth="146.0" text="Cobrar">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonImprimir" mnemonicParsing="false" prefHeight="85.0" prefWidth="146.0" text="Imprimir">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Text layoutX="531.0" layoutY="741.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="Total:" textAlignment="RIGHT" wrappingWidth="63.2021484375">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="subTotal" layoutX="619.0" layoutY="688.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="\$ 0.00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="textTotal" layoutX="617.0" layoutY="742.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-total" text="\$ 0.00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+
+      <Text fx:id="textPropina" layoutX="619.0" layoutY="717.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="\$ 0.00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+
+      <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="1024.0" spacing="25.0" styleClass="barra-superior">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" styleClass="button-primary" text="Salir" />
+         </children>
+      </HBox>
+      <Text layoutX="495.0" layoutY="687.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="Sub Total:" textAlignment="RIGHT" wrappingWidth="99.7587890625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TableView fx:id="mesasActivas" layoutX="700.0" layoutY="46.0" prefHeight="298.0" prefWidth="300.0">
+        <columns>
+          <TableColumn fx:id="mesa" prefWidth="199.0" text="Mesa" />
+          <TableColumn fx:id="total" prefWidth="99.0" text="Total" />
+        </columns>
+      </TableView>
+      <Label layoutX="730.0" layoutY="357.0" prefHeight="16.0" prefWidth="60.0" styleClass="texto" text="Efectivo" textAlignment="RIGHT" textFill="SNOW" />
+      <Label layoutX="929.0" layoutY="357.0" prefHeight="16.0" prefWidth="63.0" styleClass="texto" text="Tarjeta" textFill="SNOW" />
+      <Text layoutX="495.0" layoutY="716.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="Propina:" textAlignment="RIGHT" wrappingWidth="99.7587890625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

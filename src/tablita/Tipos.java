@@ -6,7 +6,7 @@ package tablita;
 public class Tipos {
 
     public static String ENTRADA = "Entrada";
-    public static String PLATOFUERTE = "PlatoFuerte";
+    public static String PLATOFUERTE = "Plato Fuerte";
     public static String POSTRES = "Postres";
     public static String BEBIDAS = "Bebidas";
     public static String COMBOS = "Combos";

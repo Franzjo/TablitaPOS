@@ -44,6 +44,10 @@
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.password" value="isss"/>
+      <!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/TablitaDB"/>-->
+      <!--<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>-->
+      <!--<property name="javax.persistence.jdbc.user" value="akino"/>-->
+      <!--<property name="javax.persistence.jdbc.password" value="fran"/>-->
     </properties>
   </persistence-unit>
 </persistence>

@@ -6,79 +6,112 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tablita.controllers.EmpleadoOrden">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@Imagenes/estilo.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tablita.controllers.EmpleadoOrdenController">
    <children>
-      <VBox alignment="CENTER" layoutX="3.0" layoutY="16.0" prefHeight="554.0" prefWidth="121.0">
+      <HBox alignment="CENTER" layoutX="589.0" prefHeight="26.0" prefWidth="200.0" styleClass="barra-superior">
          <children>
-            <ImageView fitHeight="111.0" fitWidth="126.0" pickOnBounds="true" preserveRatio="true">
+            <Text fx:id="productoDesc" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="" textAlignment="CENTER" wrappingWidth="200.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+         </children></HBox>
+      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="126.0" spacing="8.0" styleClass="menu-izquierdo">
+         <children>
+            <ImageView fitHeight="84.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Imagenes/Logo.png" />
                </image>
             </ImageView>
-            <Separator prefHeight="26.0" prefWidth="121.0" />
-            <Button fx:id="botonInicio" mnemonicParsing="false" prefHeight="101.0" prefWidth="121.0" text="Inicio" />
-            <Separator prefHeight="16.0" prefWidth="121.0" />
-            <Button fx:id="botonMesa" mnemonicParsing="false" prefHeight="101.0" prefWidth="121.0" text="Cambiar Mesa" />
-            <Separator prefHeight="19.0" prefWidth="121.0" />
-            <Button fx:id="botonCancelar" mnemonicParsing="false" prefHeight="101.0" prefWidth="121.0" text="Cancelar" />
+            <Button fx:id="botonInicio" mnemonicParsing="false" prefHeight="80.0" prefWidth="100.0" text="Inicio" />
+            <Button fx:id="botonMesa" mnemonicParsing="false" prefHeight="80.0" prefWidth="100.0" text="Cambiar Mesa" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="botonCancelar" mnemonicParsing="false" prefHeight="80.0" prefWidth="100.0" text="Cancelar" />
          </children>
       </VBox>
-      <VBox layoutX="633.0" layoutY="391.0" prefHeight="208.0" prefWidth="53.0">
+      <VBox layoutX="608.0" layoutY="385.0" prefHeight="208.0" prefWidth="53.0" spacing="2.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="1" />
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="4" />
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="7" />
+            <Button fx:id="botonUno" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="1" />
+            <Button fx:id="botonCuatro" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="4" />
+            <Button fx:id="botonSiete" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="7" />
+            <Button fx:id="botonClear" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="C" />
          </children>
       </VBox>
-      <VBox layoutX="689.0" layoutY="390.0" prefHeight="208.0" prefWidth="53.0">
+      <VBox layoutX="662.0" layoutY="385.0" prefHeight="208.0" prefWidth="53.0" spacing="2.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="2" />
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="5" />
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="8" />
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="0" />
+            <Button fx:id="botonDos" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="2" />
+            <Button fx:id="botonCinco" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="5" />
+            <Button fx:id="botonOcho" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="8" />
+            <Button fx:id="botonCero" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="0" />
          </children>
       </VBox>
-      <VBox layoutX="745.0" layoutY="389.0" prefHeight="208.0" prefWidth="53.0">
+      <VBox layoutX="716.0" layoutY="385.0" prefHeight="208.0" prefWidth="53.0" spacing="2.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="3" />
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="6" />
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="7" />
+            <Button fx:id="botonTres" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="3" />
+            <Button fx:id="botonSeis" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="6" />
+            <Button fx:id="botonNueve" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="9" />
+            <Button fx:id="botonBack" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="←" />
          </children>
       </VBox>
-      <TableView fx:id="tablaProductos" layoutX="148.0" layoutY="52.0" prefHeight="510.0" prefWidth="300.0">
+      <TableView fx:id="tablaProductos" layoutX="148.0" layoutY="30.0" prefHeight="528.0" prefWidth="300.0">
          <columns>
-            <TableColumn fx:id="descripcion" prefWidth="177.0" text="Descripción" />
             <TableColumn fx:id="cantidad" prefWidth="43.0" text="Cant" />
-            <TableColumn fx:id="importe" prefWidth="79.0" text="Importe" />
+            <TableColumn fx:id="descripcion" prefWidth="170.0" text="Descripción" />
+            <TableColumn fx:id="total" prefWidth="85.0" text="Total" />
          </columns>
       </TableView>
-      <Separator layoutX="632.0" layoutY="373.0" prefHeight="15.0" prefWidth="165.0" />
-      <TextField layoutX="670.0" layoutY="345.0" prefHeight="25.0" prefWidth="91.0" />
-      <VBox layoutX="473.0" layoutY="49.0" prefHeight="356.0" prefWidth="99.0">
+      <Separator layoutX="589.0" layoutY="373.0" prefHeight="15.0" prefWidth="208.0" />
+      <TextField fx:id="cantidadText" layoutX="634.0" layoutY="347.0" prefHeight="26.0" prefWidth="119.0" />
+      <VBox layoutX="473.0" layoutY="100.0" prefHeight="356.0" prefWidth="99.0">
          <children>
             <Button fx:id="botonEntrada" mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Entradas" />
             <Separator prefHeight="16.0" prefWidth="68.0" />
-            <Button fx:id="botonPlatoFuerte" mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Plato Fuerte" />
+            <Button fx:id="botonPlatoFuerte" mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Plato Fuerte" textAlignment="CENTER" wrapText="true" />
             <Separator prefHeight="16.0" prefWidth="68.0" />
             <Button fx:id="botonCombos" mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Combos" />
             <Separator prefHeight="15.0" prefWidth="68.0" />
-            <Button fx:id="botonFrias" mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Bebidas Frias" />
+            <Button fx:id="botonFrias" mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Bebidas Frias" textAlignment="CENTER" wrapText="true" />
             <Separator prefHeight="15.0" prefWidth="68.0" />
             <Button fx:id="botonPostres" mnemonicParsing="false" prefHeight="55.0" prefWidth="101.0" text="Postres" />
             <Separator prefHeight="15.0" prefWidth="68.0" />
          </children>
       </VBox>
-      <VBox layoutX="473.0" layoutY="494.0" prefHeight="89.0" prefWidth="100.0">
+      <VBox layoutX="472.0" layoutY="474.0" prefHeight="89.0" prefWidth="100.0">
          <children>
-            <VBox prefHeight="92.0" prefWidth="100.0">
+            <VBox prefHeight="101.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="bontonEnviar" mnemonicParsing="false" prefHeight="84.0" prefWidth="101.0" text="Enviar Pedido" />
+                  <Button fx:id="botonEnviar" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="button-primary" text="Enviar" />
                </children>
             </VBox>
          </children></VBox>
-      <Text layoutX="473.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categorias" textAlignment="CENTER" wrappingWidth="99.00000393390656" />
-      <Text layoutX="148.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mesa:" />
-      <Text layoutX="217.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora/Fecha" />
-      <ListView fx:id="productosListView" layoutX="589.0" layoutY="49.0" prefHeight="290.0" prefWidth="200.0" />
+
+      <Text fx:id="totalText" layoutX="228.0" layoutY="582.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="Total" textAlignment="RIGHT" wrappingWidth="219.24169921875">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Text>
+
+      <ListView fx:id="productosListView" layoutX="589.0" layoutY="30.0" prefHeight="276.0" prefWidth="200.0" />
+      <Button fx:id="botonAdd" layoutX="589.0" layoutY="310.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="95.0" styleClass="button-primary" text="Añadir" />
+      <HBox alignment="CENTER_LEFT" layoutX="127.0" prefHeight="26.0" prefWidth="462.0" spacing="10.0" styleClass="barra-superior">
+         <children>
+            <Text fx:id="idVentaText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="" textAlignment="CENTER" wrappingWidth="125.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <Text fx:id="horaText" layoutX="11.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="" textAlignment="CENTER" wrappingWidth="118.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+            <Separator layoutX="134.0" layoutY="11.0" orientation="VERTICAL" prefHeight="200.0" />
+            <Text fx:id="mesaText" layoutX="129.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="" textAlignment="CENTER" wrappingWidth="117.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <Button fx:id="botonEliminar" layoutX="694.0" layoutY="310.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="95.0" styleClass="button-primary" text="Eliminar" />
    </children>
 </Pane>

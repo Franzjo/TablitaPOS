@@ -1,0 +1,104 @@
+.button {
+    /*-fx-background-color: #df691a;*/
+    -fx-background-color: #4e5d6c;
+    -fx-text-fill: snow;
+}
+
+.button-primary {
+    -fx-background-color: #df691a;
+    /*-fx-border-color: #2b3e50;
+    -fx-border-radius: 1px;*/
+    -fx-text-fill: white;
+}
+
+.button:pressed {
+    -fx-background-color: #485563;
+    -fx-font-size: 16 px;
+}
+
+.menu-izquierdo {
+    -fx-background-color: #485563;
+    -fx-border-color: #2b3e50;
+    -fx-border-radius: 0.5px;
+}
+
+.barra-superior {
+    -fx-background-color: #485563;
+    -fx-border-color: #2b3e50;
+    -fx-border-radius: 0.5px;
+}
+
+.root {
+    -fx-background-color: #2b3e50;
+    -fx-text-fill: snow;
+}
+
+.table-column{
+    -fx-background-color: #4e5d6c;
+    -fx-border-color: #2b3e50;
+}
+
+.table-column .label{
+    -fx-text-fill: snow;
+}
+
+.table-view .placeholder{
+    -fx-background-color: #2b3e50;
+}
+
+.table-row-cell:selected:even .cell {
+    -fx-background-color: #df691a;
+}
+.table-row-cell:selected:odd .cell {
+    -fx-background-color: #df691a;
+}
+.table-row-cell:selected .text {
+    -fx-fill: snow ;
+    -fx-font-weight: bold;
+}
+.table-row-cell .text{
+    -fx-fill: snow;
+}
+
+.cell{
+    -fx-text-fill: snow;
+    -fx-background-color: #2b3e50;
+}
+
+.placeholder .label .text{
+    -fx-fill: snow;
+}
+
+.list-view {
+    -fx-background-color: #2b3e50;
+    -fx-border-color: #4e5d6c;
+    -fx-border-radius: 1px;
+}
+
+.list-cell:even:selected {
+    -fx-text-fill: snow;
+    -fx-font-weight: bold;
+    -fx-background-color: #df691a;
+}
+
+.list-cell:odd:selected{
+    -fx-background-color: #df691a;
+    -fx-text-fill: snow;
+    -fx-font-weight: bold;
+}
+
+
+
+.list-cell:even {
+    -fx-text-fill: snow;
+    -fx-background-color: #2b3e50;
+}
+
+.list-cell:odd{
+    -fx-background-color: #2b3e50;
+    -fx-text-fill: snow;
+}
+
+.texto {
+    -fx-fill: snow;
+}
