@@ -89,6 +89,7 @@ public class CajeroOrdenController {
         mesa.setCellValueFactory(new PropertyValueFactory<Ventas, String>("mesa"));
         cantidad.setCellValueFactory(new PropertyValueFactory<Ventas, BigDecimal>("subTotal"));
 
+
         botonInicio.setOnAction(event -> { try { goHome(); } catch (IOException e) {e.printStackTrace(); }});
         botonCobrar.setOnAction(event -> cobrar());
     }
