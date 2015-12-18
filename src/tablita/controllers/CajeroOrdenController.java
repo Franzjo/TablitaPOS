@@ -15,6 +15,7 @@ import javafx.scene.text.Text;
 import tablita.CreadorEntityManager;
 import tablita.Dtos.ProductoVentaDTO;
 import tablita.Preferencias;
+import tablita.ServicioImpresion;
 import tablita.ViewsManager;
 import tablita.persistencia.DetallesVentas;
 import tablita.persistencia.JPAControllers.VentasJpaController;
@@ -38,18 +39,18 @@ public class CajeroOrdenController {
     @FXML
     TableView<ProductoVentaDTO> listaProductos;
     @FXML
-    TableColumn descripcion;
+    TableColumn<ProductoVentaDTO, String> descripcion;
     @FXML
-    TableColumn cantidad;
+    TableColumn<ProductoVentaDTO, Integer> cantidad;
     @FXML
-    TableColumn unitario;
+    TableColumn<ProductoVentaDTO, BigDecimal> unitario;
     @FXML
-    TableColumn total_actual;
+    TableColumn<ProductoVentaDTO, BigDecimal> total_actual;
 
     @FXML
-    TableView mesasActivas;
+    TableView<Ventas> mesasActivas;
     @FXML
-    TableColumn mesa;
+    TableColumn<Ventas, String> mesa;
     @FXML
     TableColumn total;
 
@@ -81,17 +82,23 @@ public class CajeroOrdenController {
 
     @FXML
     private void initialize(){
-        descripcion.setCellValueFactory(new PropertyValueFactory<ProductoVentaDTO, String>("descripcion"));
-        cantidad.setCellValueFactory(new PropertyValueFactory<ProductoVentaDTO, Integer>("cantidad"));
-        unitario.setCellValueFactory(new PropertyValueFactory<ProductoVentaDTO, BigDecimal>("unitario"));
-        total_actual.setCellValueFactory(new PropertyValueFactory<ProductoVentaDTO, BigDecimal>("subTotal"));
+        descripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        cantidad.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+        unitario.setCellValueFactory(new PropertyValueFactory<>("unitario"));
+        total_actual.setCellValueFactory(new PropertyValueFactory<>("total"));
 
-        mesa.setCellValueFactory(new PropertyValueFactory<Ventas, String>("mesa"));
-        cantidad.setCellValueFactory(new PropertyValueFactory<Ventas, BigDecimal>("subTotal"));
-
+        //mesa.setCellValueFactory(new PropertyValueFactory<>("mesa"));
+        //cantidad.setCellValueFactory(new PropertyValueFactory<Ventas, BigDecimal>("subTotal"));
 
         botonInicio.setOnAction(event -> { try { goHome(); } catch (IOException e) {e.printStackTrace(); }});
         botonCobrar.setOnAction(event -> cobrar());
+        botonImprimir.setOnAction(event -> {
+            try {
+                ServicioImpresion.imprimirTicket(listaDetalles,venta);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public void init(Ventas v) {
@@ -127,8 +134,8 @@ public class CajeroOrdenController {
         this.venta = v;
         listaProductos.setItems(ventaActual);
 
-        ObservableList<Ventas> ventasActivas = FXCollections.observableArrayList(ventasJpa.findActivas());
-        mesasActivas.setItems(ventasActivas);
+        //ObservableList<Ventas> ventasActivas = FXCollections.observableArrayList(ventasJpa.findActivas());
+        //mesasActivas.setItems(ventasActivas);
     }
 
     private BigDecimal subTotal() {
@@ -136,10 +143,6 @@ public class CajeroOrdenController {
             return BigDecimal.ZERO;
         return listaDetalles.stream().map(ld -> ld.getIdProductos().getPrecio().multiply(new BigDecimal(ld.getCantidad())))
                 .reduce(BigDecimal::add).get();
-    }
-
-    private BigDecimal total(){
-        return subTotal().multiply(new BigDecimal(Preferencias.PROPINA/100));
     }
 
     private void cobrar(){
@@ -165,7 +168,6 @@ public class CajeroOrdenController {
         Parent root = FXMLLoader.load(getClass().getResource("../views/cajero/VistaCajeroIncio.fxml"));
         ViewsManager.cambiarVentana("TablitaPOS",root);
     }
-
 
     private class CobrarDialog extends Dialog<Ventas>{
         ButtonType botonCobrar = new ButtonType("Cobrar", ButtonBar.ButtonData.OK_DONE);
@@ -238,8 +240,7 @@ public class CajeroOrdenController {
 
 
         BigDecimal getImporte(String importe){
-            BigDecimal imp = new BigDecimal(importe);
-            return imp;
+            return new BigDecimal(importe);
         }
 
         BigDecimal cambio (BigDecimal total, BigDecimal importe){

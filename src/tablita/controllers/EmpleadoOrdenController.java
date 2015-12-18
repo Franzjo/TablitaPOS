@@ -13,6 +13,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import tablita.CreadorEntityManager;
 import tablita.Dtos.ProductoVentaDTO;
+import tablita.ServicioImpresion;
 import tablita.Tipos;
 import tablita.ViewsManager;
 import tablita.persistencia.*;
@@ -328,14 +329,22 @@ public class EmpleadoOrdenController {
         if(existente){
             for (DetallesVentas d: listaDetalles.subList(index,listaDetalles.size())) {
                 detVenJpaCont.create(d);
-                //ServicioImpresion.imprimir(listaDetalles.subList(index,listaDetalles.size()));
+            }
+            try {
+                ServicioImpresion.imprimirCocina(listaDetalles.subList(index,listaDetalles.size()));
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
 
         if (!existente){
             for (DetallesVentas detallesVentas: listaDetalles) {
                 detVenJpaCont.create(detallesVentas);
-                //ServicioImpresion.imprimir(listaDetalles.subList(index,listaDetalles.size()));
+            }
+            try {
+                ServicioImpresion.imprimirCocina(listaDetalles);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
 

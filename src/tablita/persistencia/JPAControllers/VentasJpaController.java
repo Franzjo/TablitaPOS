@@ -16,9 +16,7 @@ import javax.persistence.*;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 /**
  *
@@ -291,6 +289,79 @@ public class VentasJpaController implements Serializable {
             TypedQuery<Ventas> query = em.createQuery("select v from Ventas v where v.activa = true",Ventas.class);
             return query.getResultList();
         }finally {
+            em.close();
+        }
+    }
+
+    public List<Ventas> findByDia(){
+        EntityManager em = getEntityManager();
+        try{
+            // today
+            Calendar cal = new GregorianCalendar();
+            // reset hour, minutes, seconds and millis
+            cal.set(Calendar.HOUR_OF_DAY, 0);
+            cal.set(Calendar.MINUTE, 0);
+            cal.set(Calendar.SECOND, 0);
+            cal.set(Calendar.MILLISECOND, 0);
+
+            Date date = cal.getTime();
+
+            TypedQuery<Ventas> query = em.createQuery(" select v from Ventas v where v.fechaHora > :date", Ventas.class);
+
+            query.setParameter("date", date);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    public List<Ventas> findBySemana(){
+        EntityManager em = getEntityManager();
+        try{
+
+            Calendar cal = new GregorianCalendar();
+            // reset hour, minutes, seconds and millis
+
+            int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK) - cal.getFirstDayOfWeek();
+            cal.add(Calendar.DAY_OF_MONTH, -dayOfWeek);
+            cal.set(Calendar.HOUR_OF_DAY, 0);
+            cal.set(Calendar.MINUTE, 0);
+            cal.set(Calendar.SECOND, 0);
+            cal.set(Calendar.MILLISECOND, 0);
+
+            Date date = cal.getTime();
+
+            TypedQuery<Ventas> query = em.createQuery(" select v from Ventas v where v.fechaHora > :date", Ventas.class);
+
+            query.setParameter("date", date);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    public List<Ventas> findByAnio(){
+        EntityManager em = getEntityManager();
+        try{
+            Calendar cal = new GregorianCalendar();
+            // reset hour, minutes, seconds and millis
+
+            int dayOfMonth = cal.get(Calendar.DAY_OF_YEAR) -1;
+
+            cal.add(Calendar.DAY_OF_YEAR, -dayOfMonth);
+            cal.set(Calendar.HOUR_OF_DAY, 0);
+            cal.set(Calendar.MINUTE, 0);
+            cal.set(Calendar.SECOND, 0);
+            cal.set(Calendar.MILLISECOND, 0);
+
+            Date date = cal.getTime();
+
+            TypedQuery<Ventas> query = em.createQuery(" select v from Ventas v where v.fechaHora > :date and " +
+                    "v.activa = false", Ventas.class);
+
+            query.setParameter("date", date);
+            return query.getResultList();
+        } finally {
             em.close();
         }
     }
