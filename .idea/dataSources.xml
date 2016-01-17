@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="4066999518">
+  <component name="DataSourceManagerImpl" format="xml" hash="8908721">
     <data-source source="LOCAL" name="MySQL - TablitaDB@localhost" uuid="ca73a489-daf4-4988-a378-26750e4b74c8">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -13,6 +13,12 @@
         <property name="characterSetResults" value="utf8" />
         <property name="yearIsDateType" value="false" />
       </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="PostgreSQL - TablitaDB@localhost" uuid="fb7f6d77-07a8-4508-b75b-c23a873022be">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/TablitaDB</jdbc-url>
     </data-source>
   </component>
 </project>

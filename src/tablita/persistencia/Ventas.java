@@ -8,6 +8,7 @@ package tablita.persistencia;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Date;
 
@@ -18,12 +19,12 @@ import java.util.Date;
 @Entity
 @Table(name = "Ventas")
 @NamedQueries({
-    @NamedQuery(name = "Ventas.findAll", query = "SELECT v FROM Ventas v"),
-    @NamedQuery(name = "Ventas.findByIdVentas", query = "SELECT v FROM Ventas v WHERE v.idVentas = :idVentas"),
-    @NamedQuery(name = "Ventas.findByFechaHora", query = "SELECT v FROM Ventas v WHERE v.fechaHora = :fechaHora"),
-    @NamedQuery(name = "Ventas.findByTotal", query = "SELECT v FROM Ventas v WHERE v.total = :total"),
-    @NamedQuery(name = "Ventas.findByImporte", query = "SELECT v FROM Ventas v WHERE v.importe = :importe"),
-    @NamedQuery(name = "Ventas.findByCambio", query = "SELECT v FROM Ventas v WHERE v.cambio = :cambio")})
+        @NamedQuery(name = "Ventas.findAll", query = "SELECT v FROM Ventas v"),
+        @NamedQuery(name = "Ventas.findByIdVentas", query = "SELECT v FROM Ventas v WHERE v.idVentas = :idVentas"),
+        @NamedQuery(name = "Ventas.findByFechaHora", query = "SELECT v FROM Ventas v WHERE v.fechaHora = :fechaHora"),
+        @NamedQuery(name = "Ventas.findByTotal", query = "SELECT v FROM Ventas v WHERE v.total = :total"),
+        @NamedQuery(name = "Ventas.findByImporte", query = "SELECT v FROM Ventas v WHERE v.importe = :importe"),
+        @NamedQuery(name = "Ventas.findByCambio", query = "SELECT v FROM Ventas v WHERE v.cambio = :cambio")})
 public class Ventas implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -35,22 +36,72 @@ public class Ventas implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaHora;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+
     @Column(name = "total")
     private BigDecimal total;
+
     @Column(name = "importe")
     private BigDecimal importe;
+
     @Column(name = "cambio")
     private BigDecimal cambio;
+
+    @Column(name = "activa")
+    private boolean activa;
+
+    @Column(name="tipo")
+    private String tipo;
+
+    @Column(name="subtotal")
+    private BigDecimal subtotal;
+
+    @Column(name="propina")
+    private BigDecimal propina;
+
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
     @ManyToOne(optional = false)
     private Usuarios idUsuario;
+
     @JoinColumn(name = "idMesa", referencedColumnName = "idMesa")
     @ManyToOne(optional = false)
     private Mesas idMesa;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idVentas")
     private Collection<DetallesVentas> detallesVentasCollection;
 
+
+    @Column(name = "fin")
+    private Timestamp fin;
+
     public Ventas() {
+    }
+
+    public Timestamp getFin() {
+        return fin;
+    }
+
+    public void setFechaHora(Date fechaHora) {
+        this.fechaHora = fechaHora;
+    }
+
+    public void setFin(Timestamp fin) {
+        this.fin = fin;
+    }
+
+    public BigDecimal getPropina() {
+        return propina;
+    }
+
+    public void setPropina(BigDecimal propina) {
+        this.propina = propina;
+    }
+
+    public BigDecimal getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(BigDecimal subtotal) {
+        this.subtotal = subtotal;
     }
 
     public Ventas(Integer idVentas) {
@@ -69,7 +120,7 @@ public class Ventas implements Serializable {
         return fechaHora;
     }
 
-    public void setFechaHora(Date fechaHora) {
+    public void setFechaHora(Timestamp fechaHora) {
         this.fechaHora = fechaHora;
     }
 
@@ -113,6 +164,14 @@ public class Ventas implements Serializable {
         this.idMesa = idMesa;
     }
 
+    public boolean isActiva() { return activa;}
+
+    public void setActiva(boolean activa) { this.activa = activa; }
+
+    public String getTipo() {return tipo;}
+
+    public void setTipo(String tipo) {this.tipo = tipo;}
+
     public Collection<DetallesVentas> getDetallesVentasCollection() {
         return detallesVentasCollection;
     }
@@ -145,5 +204,6 @@ public class Ventas implements Serializable {
     public String toString() {
         return "tablita.persistencia.Ventas[ idVentas=" + idVentas + " ]";
     }
-    
+
+
 }

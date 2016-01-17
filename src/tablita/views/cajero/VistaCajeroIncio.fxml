@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@Imagenes/estilo.css" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tablita.controllers.CajeroMainController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="768.0" prefWidth="175.0">
+         <children>
+            <ImageView fitHeight="223.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/Logo.png" />
+               </image>
+            </ImageView>
+            <Separator prefHeight="26.0" prefWidth="174.0" />
+            <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="146.0" text="Inicio">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Separator prefHeight="16.0" prefWidth="121.0" />
+            <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="146.0" text="Reserva">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Separator prefHeight="19.0" prefWidth="121.0" />
+            <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="146.0" text="Clientes">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <VBox fx:id="mainVBox" alignment="CENTER" layoutX="175.0" prefHeight="768.0" prefWidth="849.0" />
+   </children>
+</Pane>

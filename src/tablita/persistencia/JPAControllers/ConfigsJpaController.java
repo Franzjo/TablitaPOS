@@ -5,17 +5,18 @@
  */
 package tablita.persistencia.JPAControllers;
 
-import java.io.Serializable;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import tablita.persistencia.Configs;
 import tablita.persistencia.JPAControllers.exceptions.NonexistentEntityException;
 import tablita.persistencia.JPAControllers.exceptions.PreexistingEntityException;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -141,5 +142,4 @@ public class ConfigsJpaController implements Serializable {
             em.close();
         }
     }
-    
 }

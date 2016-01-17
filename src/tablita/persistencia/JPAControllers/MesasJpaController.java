@@ -5,14 +5,19 @@
  */
 package tablita.persistencia.JPAControllers;
 
-import java.io.Serializable;
-import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
+import tablita.persistencia.JPAControllers.exceptions.IllegalOrphanException;
+import tablita.persistencia.JPAControllers.exceptions.NonexistentEntityException;
+import tablita.persistencia.Mesas;
+import tablita.persistencia.Reservaciones;
+import tablita.persistencia.Ventas;
+
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import tablita.persistencia.ReservacionesPK;
 import tablita.persistencia.Ventas;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -57,7 +62,7 @@ public class MesasJpaController implements Serializable {
             mesas.setVentasCollection(attachedVentasCollection);
             Collection<Reservaciones> attachedReservacionesCollection = new ArrayList<Reservaciones>();
             for (Reservaciones reservacionesCollectionReservacionesToAttach : mesas.getReservacionesCollection()) {
-                reservacionesCollectionReservacionesToAttach = em.getReference(reservacionesCollectionReservacionesToAttach.getClass(), reservacionesCollectionReservacionesToAttach.getReservacionesPK(new ReservacionesPK()));
+                reservacionesCollectionReservacionesToAttach = em.getReference(reservacionesCollectionReservacionesToAttach.getClass(), reservacionesCollectionReservacionesToAttach.getReservacionesPK());
                 attachedReservacionesCollection.add(reservacionesCollectionReservacionesToAttach);
             }
             mesas.setReservacionesCollection(attachedReservacionesCollection);
@@ -127,7 +132,7 @@ public class MesasJpaController implements Serializable {
             mesas.setVentasCollection(ventasCollectionNew);
             Collection<Reservaciones> attachedReservacionesCollectionNew = new ArrayList<Reservaciones>();
             for (Reservaciones reservacionesCollectionNewReservacionesToAttach : reservacionesCollectionNew) {
-                reservacionesCollectionNewReservacionesToAttach = em.getReference(reservacionesCollectionNewReservacionesToAttach.getClass(), reservacionesCollectionNewReservacionesToAttach.getReservacionesPK(new ReservacionesPK()));
+                reservacionesCollectionNewReservacionesToAttach = em.getReference(reservacionesCollectionNewReservacionesToAttach.getClass(), reservacionesCollectionNewReservacionesToAttach.getReservacionesPK());
                 attachedReservacionesCollectionNew.add(reservacionesCollectionNewReservacionesToAttach);
             }
             reservacionesCollectionNew = attachedReservacionesCollectionNew;
@@ -239,6 +244,18 @@ public class MesasJpaController implements Serializable {
         EntityManager em = getEntityManager();
         try {
             return em.find(Mesas.class, id);
+        } finally {
+            em.close();
+        }
+    }
+
+    public Mesas findMesaByNumero(int numeroMesa){
+        EntityManager em = getEntityManager();
+        try {
+            //NamedQuery query = em.createNamedQuery("Mesas.findByNumeroMesa",Mesas.class);
+            Query query = em.createNamedQuery("Mesas.findByNumeroMesa");
+            query.setParameter("numeroMesa", numeroMesa);
+            return (Mesas) query.getSingleResult();
         } finally {
             em.close();
         }
