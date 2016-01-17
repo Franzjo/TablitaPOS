@@ -121,6 +121,7 @@ public class AdminReservasController implements Initializable {
                 );
                 //comment
 
+//jhgjhg
                 conexion.establecerConexion();
                 int resultado = r.modificarRegistro(conexion);
                 conexion.cerrarConexion();
