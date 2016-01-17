@@ -18,7 +18,7 @@ import java.util.Date;
 @NamedQueries({
     @NamedQuery(name = "Reservaciones.findAll", query = "SELECT r FROM Reservaciones r"),
     @NamedQuery(name = "Reservaciones.findByIdReservas", query = "SELECT r FROM Reservaciones r WHERE r.reservacionesPK.idReservas = :idReservas"),
-    @NamedQuery(name = "Reservaciones.findByHora", query = "SELECT r FROM Reservaciones r WHERE r.hora = :hora"),
+    @NamedQuery(name = "Reservaciones.findByhora", query = "SELECT r FROM Reservaciones r WHERE r.hora = :hora"),
     @NamedQuery(name = "Reservaciones.findByIdClientes", query = "SELECT r FROM Reservaciones r WHERE r.reservacionesPK.idClientes = :idClientes"),
     @NamedQuery(name = "Reservaciones.findByIdMesa", query = "SELECT r FROM Reservaciones r WHERE r.reservacionesPK.idMesa = :idMesa"),
     @NamedQuery(name = "Reservaciones.findByIdSalas", query = "SELECT r FROM Reservaciones r WHERE r.reservacionesPK.idSalas = :idSalas")})
@@ -30,7 +30,7 @@ public class Reservaciones implements Serializable {
     @Column(name = "hora")
     @Temporal(TemporalType.TIMESTAMP)
     private Date hora;
-    @JoinColumn(name = "idSalas", referencedColumnName = "idSalas", insertable = false, updatable = false)
+//    @JoinColumn(name = "idSalas", referencedColumnName = "idSalas", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Salas salas;
     @JoinColumn(name = "idMesa", referencedColumnName = "idMesa", insertable = false, updatable = false)
@@ -56,19 +56,19 @@ public class Reservaciones implements Serializable {
         this.reservacionesPK = new ReservacionesPK(idReservas, idClientes, idMesa, idSalas);
     }
 
-    public ReservacionesPK getReservacionesPK() {
-        return reservacionesPK;
+    public ReservacionesPK getReservacionesPK(ReservacionesPK reservacionesPK) {
+        return this.reservacionesPK;
     }
 
     public void setReservacionesPK(ReservacionesPK reservacionesPK) {
         this.reservacionesPK = reservacionesPK;
     }
 
-    public Date getHora() {
+    public Date gethora() {
         return hora;
     }
 
-    public void setHora(Date hora) {
+    public void sethora(Date hora) {
         this.hora = hora;
     }
 
@@ -120,5 +120,5 @@ public class Reservaciones implements Serializable {
     public String toString() {
         return "tablita.persistencia.Reservaciones[ reservacionesPK=" + reservacionesPK + " ]";
     }
-    
+
 }

@@ -18,7 +18,6 @@ import tablita.persistencia.JPAControllers.UsuariosJpaController;
 import tablita.persistencia.JPAControllers.exceptions.IllegalOrphanException;
 import tablita.persistencia.JPAControllers.exceptions.NonexistentEntityException;
 import tablita.persistencia.Usuarios;
-
 import javax.persistence.EntityManagerFactory;
 import java.io.IOException;
 import java.util.Optional;
@@ -106,6 +105,7 @@ public class AdminEmpleadosController {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
 
             });
             empleados = FXCollections.observableArrayList(ujpa.findByRole(RolesFactory.empleado()));

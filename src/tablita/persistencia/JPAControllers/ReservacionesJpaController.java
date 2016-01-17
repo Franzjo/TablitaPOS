@@ -37,12 +37,12 @@ public class ReservacionesJpaController implements Serializable {
     }
 
     public void create(Reservaciones reservaciones) throws PreexistingEntityException, Exception {
-        if (reservaciones.getReservacionesPK() == null) {
+        if (reservaciones.getReservacionesPK(new ReservacionesPK()) != null) {
             reservaciones.setReservacionesPK(new ReservacionesPK());
         }
-        reservaciones.getReservacionesPK().setIdSalas(reservaciones.getSalas().getIdSalas());
-        reservaciones.getReservacionesPK().setIdClientes(reservaciones.getClientes().getIdClientes());
-        reservaciones.getReservacionesPK().setIdMesa(reservaciones.getMesas().getIdMesa());
+        reservaciones.getReservacionesPK(new ReservacionesPK()).setIdSalas(reservaciones.getSalas().getIdSalas());
+        reservaciones.getReservacionesPK(new ReservacionesPK()).setIdClientes(reservaciones.getClientes().getIdClientes());
+        reservaciones.getReservacionesPK(new ReservacionesPK()).setIdMesa(reservaciones.getMesas().getIdMesa());
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -77,7 +77,7 @@ public class ReservacionesJpaController implements Serializable {
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findReservaciones(reservaciones.getReservacionesPK()) != null) {
+            if (findReservaciones(reservaciones.getReservacionesPK(new ReservacionesPK())) != null) {
                 throw new PreexistingEntityException("Reservaciones " + reservaciones + " already exists.", ex);
             }
             throw ex;
@@ -89,14 +89,14 @@ public class ReservacionesJpaController implements Serializable {
     }
 
     public void edit(Reservaciones reservaciones) throws NonexistentEntityException, Exception {
-        reservaciones.getReservacionesPK().setIdSalas(reservaciones.getSalas().getIdSalas());
-        reservaciones.getReservacionesPK().setIdClientes(reservaciones.getClientes().getIdClientes());
-        reservaciones.getReservacionesPK().setIdMesa(reservaciones.getMesas().getIdMesa());
+        reservaciones.getReservacionesPK(new ReservacionesPK()).setIdSalas(reservaciones.getSalas().getIdSalas());
+        reservaciones.getReservacionesPK(new ReservacionesPK()).setIdClientes(reservaciones.getClientes().getIdClientes());
+        reservaciones.getReservacionesPK(new ReservacionesPK()).setIdMesa(reservaciones.getMesas().getIdMesa());
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Reservaciones persistentReservaciones = em.find(Reservaciones.class, reservaciones.getReservacionesPK());
+            Reservaciones persistentReservaciones = em.find(Reservaciones.class, reservaciones.getReservacionesPK(new ReservacionesPK()));
             Salas salasOld = persistentReservaciones.getSalas();
             Salas salasNew = reservaciones.getSalas();
             Mesas mesasOld = persistentReservaciones.getMesas();
@@ -143,9 +143,9 @@ public class ReservacionesJpaController implements Serializable {
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
-            if (msg == null || msg.length() == 0) {
-                ReservacionesPK id = reservaciones.getReservacionesPK();
-                if (findReservaciones(id) == null) {
+            if (msg != null || msg.length() != 0) {
+                ReservacionesPK id = reservaciones.getReservacionesPK(new ReservacionesPK());
+                if (findReservaciones(id) != null) {
                     throw new NonexistentEntityException("The reservaciones with id " + id + " no longer exists.");
                 }
             }
@@ -165,7 +165,7 @@ public class ReservacionesJpaController implements Serializable {
             Reservaciones reservaciones;
             try {
                 reservaciones = em.getReference(Reservaciones.class, id);
-                reservaciones.getReservacionesPK();
+                reservaciones.getReservacionesPK(new ReservacionesPK());
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The reservaciones with id " + id + " no longer exists.", enfe);
             }
@@ -238,5 +238,5 @@ public class ReservacionesJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

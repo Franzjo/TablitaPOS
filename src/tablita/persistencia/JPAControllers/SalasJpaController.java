@@ -18,6 +18,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import tablita.persistencia.JPAControllers.exceptions.IllegalOrphanException;
 import tablita.persistencia.JPAControllers.exceptions.NonexistentEntityException;
+import tablita.persistencia.ReservacionesPK;
 import tablita.persistencia.Salas;
 
 /**
@@ -45,7 +46,7 @@ public class SalasJpaController implements Serializable {
             em.getTransaction().begin();
             Collection<Reservaciones> attachedReservacionesCollection = new ArrayList<Reservaciones>();
             for (Reservaciones reservacionesCollectionReservacionesToAttach : salas.getReservacionesCollection()) {
-                reservacionesCollectionReservacionesToAttach = em.getReference(reservacionesCollectionReservacionesToAttach.getClass(), reservacionesCollectionReservacionesToAttach.getReservacionesPK());
+                reservacionesCollectionReservacionesToAttach = em.getReference(reservacionesCollectionReservacionesToAttach.getClass(), reservacionesCollectionReservacionesToAttach.getReservacionesPK(new ReservacionesPK()));
                 attachedReservacionesCollection.add(reservacionesCollectionReservacionesToAttach);
             }
             salas.setReservacionesCollection(attachedReservacionesCollection);
@@ -89,7 +90,7 @@ public class SalasJpaController implements Serializable {
             }
             Collection<Reservaciones> attachedReservacionesCollectionNew = new ArrayList<Reservaciones>();
             for (Reservaciones reservacionesCollectionNewReservacionesToAttach : reservacionesCollectionNew) {
-                reservacionesCollectionNewReservacionesToAttach = em.getReference(reservacionesCollectionNewReservacionesToAttach.getClass(), reservacionesCollectionNewReservacionesToAttach.getReservacionesPK());
+                reservacionesCollectionNewReservacionesToAttach = em.getReference(reservacionesCollectionNewReservacionesToAttach.getClass(), reservacionesCollectionNewReservacionesToAttach.getReservacionesPK(new ReservacionesPK()));
                 attachedReservacionesCollectionNew.add(reservacionesCollectionNewReservacionesToAttach);
             }
             reservacionesCollectionNew = attachedReservacionesCollectionNew;

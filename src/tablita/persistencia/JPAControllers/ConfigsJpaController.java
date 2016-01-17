@@ -23,6 +23,7 @@ import tablita.persistencia.JPAControllers.exceptions.PreexistingEntityException
  */
 public class ConfigsJpaController implements Serializable {
 
+
     public ConfigsJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }

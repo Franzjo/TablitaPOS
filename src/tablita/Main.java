@@ -15,8 +15,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         ViewsManager.setStage(primaryStage);
         FlatterFX.style();
-//        Parent root = FXMLLoader.load(getClass().getResource("views/administrador/VistaAdministrador.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("views/empleados/VistaEmpleadoOrden.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("views/administrador/VistaAdministrador.fxml"));
+       // Parent root = FXMLLoader.load(getClass().getResource("views/empleados/VistaEmpleadoOrden.fxml"));
 
         System.out.println("3");
 
@@ -28,12 +28,8 @@ public class Main extends Application {
 
     }
 
-
-
-
     public static void main(String[] args) {
         launch(args);
         //RolesFactory.initialize();
-
     }
 }
