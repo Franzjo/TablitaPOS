@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tablita.controllers.AdminReservasController">
+   <children>
+      <VBox layoutX="10.0" layoutY="3.0" prefHeight="764.0" prefWidth="112.0">
+         <children>
+            <VBox prefHeight="96.0" prefWidth="119.0">
+               <children>
+                  <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" textAlignment="CENTER" underline="true" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="93.0" fitWidth="110.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconos/home153.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="S_RESIZE" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio" textAlignment="CENTER" wrappingWidth="120.80338287353516">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <Separator prefHeight="6.0" prefWidth="100.0" />
+            <VBox prefHeight="132.0" prefWidth="121.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0">
+                     <graphic>
+                        <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconos/40323.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Empleados" textAlignment="CENTER" wrappingWidth="111.47004699707031">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Separator prefHeight="0.0" prefWidth="123.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="131.0" prefWidth="121.0">
+               <children>
+                  <Button alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="102.0" prefWidth="115.0">
+                     <graphic>
+                        <ImageView fitHeight="88.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconos/retail-1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Productos" textAlignment="CENTER" wrappingWidth="120.80338287353516">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Separator prefWidth="200.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="131.0" prefWidth="121.0">
+               <children>
+                  <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="115.0" textAlignment="CENTER" underline="true" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="93.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconos/lunch4.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="S_RESIZE" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menú" textAlignment="CENTER" wrappingWidth="120.80338287353516">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Separator prefWidth="200.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="100.0" textAlignment="CENTER" underline="true" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="93.0" fitWidth="119.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconos/Gente.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="S_RESIZE" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Clientes" textAlignment="CENTER" wrappingWidth="120.80338287353516">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Separator prefWidth="200.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="96.0" prefWidth="115.0" textAlignment="CENTER" underline="true" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="83.0" fitWidth="107.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconos/fijo-n.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="S_RESIZE" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reservaciones" textAlignment="CENTER" wrappingWidth="120.80338287353516">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Separator prefWidth="200.0" />
+         </children>
+      </VBox>
+      <Text layoutX="452.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RESERVAS" textAlignment="CENTER" wrappingWidth="200.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <GridPane layoutX="247.0" layoutY="114.0" prefHeight="204.0" prefWidth="441.0">
+         <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="259.33331298828125" minWidth="10.0" prefWidth="239.66665649414062" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="408.66668701171875" minWidth="10.0" prefWidth="274.3333435058594" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label prefWidth="149.0" text="Número Reserva:" textAlignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </Label>
+            <Label text="Nombre Cliente:" textAlignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </Label>
+            <Label contentDisplay="CENTER" text="Apellido Cliente:" textAlignment="RIGHT" GridPane.rowIndex="3">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </Label>
+            <Label text="Número de Personas:" textAlignment="CENTER" GridPane.rowIndex="4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </Label>
+            <Label text="Fecha:" textAlignment="CENTER" GridPane.rowIndex="5">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="txtidReservas" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtNombreCliente" prefHeight="25.0" prefWidth="255.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtApellidoCliente" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtNumeroPersona" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Teléfono Cliente:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="txtTelefonoCliente" GridPane.columnIndex="1" />
+            <Label text="Hora:" textAlignment="CENTER" GridPane.rowIndex="6">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="txtHora" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <DatePicker fx:id="dpFecha" prefHeight="25.0" prefWidth="239.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+         </children>
+      </GridPane>
+      <VBox layoutX="716.0" layoutY="115.0" prefHeight="214.0" prefWidth="91.0">
+         <children>
+            <Button fx:id="btnBuscar" mnemonicParsing="false" prefHeight="77.0" prefWidth="90.0" text="Buscar" />
+            <Separator prefHeight="35.0" prefWidth="97.0" />
+            <Button fx:id="btnNuevo" mnemonicParsing="false" prefHeight="77.0" prefWidth="90.0" text="Nuevo" />
+            <Separator prefHeight="33.0" prefWidth="97.0" />
+            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#agregarRegistro" prefHeight="77.0" prefWidth="90.0" text="Guardar" />
+            <Separator prefHeight="40.0" prefWidth="97.0" />
+         </children>
+      </VBox>
+      <Text layoutX="436.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservas para este día" textAlignment="CENTER" wrappingWidth="200.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Separator layoutX="210.0" layoutY="345.0" prefHeight="9.0" prefWidth="686.0" />
+      <ImageView fitHeight="194.0" fitWidth="148.0" layoutX="841.0" layoutY="153.0" opacity="0.44" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@iconos/Logo.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="viewReservas" layoutX="227.0" layoutY="396.0" prefHeight="336.0" prefWidth="625.0">
+        <columns>
+          <TableColumn fx:id="colidReservas" prefWidth="101.66665649414062" text="N° de Reserva" />
+          <TableColumn fx:id="colNombreCliente" prefWidth="109.33334350585938" text="Nombre" />
+            <TableColumn fx:id="colApellidoCliente" prefWidth="113.33331298828125" text="Apellido" />
+            <TableColumn fx:id="colNumeroPersonas" prefWidth="115.0" text="N° de Personas" />
+            <TableColumn fx:id="colFecha" prefWidth="98.0" text="Fecha" />
+            <TableColumn fx:id="colHora" prefWidth="85.0" text="Hora" />
+        </columns>
+      </TableView>
+      <VBox layoutX="869.0" layoutY="462.0" prefHeight="214.0" prefWidth="91.0">
+         <children>
+            <Button fx:id="btnModificar" mnemonicParsing="false" onAction="#modificarRegistro" prefHeight="77.0" prefWidth="90.0" text="Modificar" />
+            <Separator prefHeight="35.0" prefWidth="97.0" />
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarRegistro" prefHeight="77.0" prefWidth="90.0" text="Eliminar" />
+            <Separator prefHeight="33.0" prefWidth="97.0" />
+         </children>
+      </VBox>
+      <Text layoutX="424.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resgistrar una nueva reserva" textAlignment="CENTER" wrappingWidth="250.66668701171875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

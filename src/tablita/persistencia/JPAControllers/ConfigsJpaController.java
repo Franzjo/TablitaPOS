@@ -24,6 +24,7 @@ import java.util.List;
  */
 public class ConfigsJpaController implements Serializable {
 
+
     public ConfigsJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }

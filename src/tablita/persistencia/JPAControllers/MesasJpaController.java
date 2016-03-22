@@ -14,10 +14,19 @@ import tablita.persistencia.Ventas;
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+
+import tablita.persistencia.ReservacionesPK;
+import tablita.persistencia.Ventas;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import tablita.persistencia.JPAControllers.exceptions.IllegalOrphanException;
+import tablita.persistencia.JPAControllers.exceptions.NonexistentEntityException;
+import tablita.persistencia.Mesas;
+import tablita.persistencia.Reservaciones;
 
 /**
  *

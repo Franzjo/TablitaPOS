@@ -6,7 +6,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="EclipseLink" />
         <datasource-mapping>
-          <factory-entry name="TablitaPOSPU" value="ca73a489-daf4-4988-a378-26750e4b74c8" />
+          <factory-entry name="TablitaPOSPU" value="c22d46e2-03a2-4c33-8536-1253532b04d9" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
       </configuration>
