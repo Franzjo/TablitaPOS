@@ -160,6 +160,8 @@ public class ServicioImpresion {
         outputStream.write(totalTicket(ventas));
         outputStream.write(footer());
 
+        outputStream.write(Codigos.cashDrawerKick());
+
         outputStream.write(Codigos.fin());
 
         byte[] impresion = outputStream.toByteArray();

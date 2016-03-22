@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" stylesheets="@estilo.css" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tablita.controllers.LoginController">
+   <children>
+      <Button fx:id="botonEntrar" layoutX="61.0" layoutY="314.0" mnemonicParsing="false" text="Entrar">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Label layoutX="31.0" layoutY="181.0" text="TablitaPOS" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <TextField fx:id="usuarioText" layoutX="17.0" layoutY="227.0" promptText="Usuario">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="passwordField" layoutX="17.0" layoutY="270.0" promptText="Contraseña">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </PasswordField>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="41.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cajero/Imagenes/Logo.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="300.0" layoutY="97.0" prefHeight="240.0" prefWidth="70.0" spacing="2.0">
+         <children>
+            <Button fx:id="botonUno" mnemonicParsing="false" prefHeight="52.0" prefWidth="59.0" text="1">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonCuatro" mnemonicParsing="false" prefHeight="52.0" prefWidth="59.0" text="4">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonSiete" mnemonicParsing="false" prefHeight="52.0" prefWidth="59.0" text="7">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonClear" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" text="C">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="370.0" layoutY="97.0" prefHeight="240.0" prefWidth="70.0" spacing="2.0">
+         <children>
+            <Button fx:id="botonDos" mnemonicParsing="false" prefHeight="52.0" prefWidth="59.0" text="2">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonCinco" mnemonicParsing="false" prefHeight="55.0" prefWidth="59.0" text="5">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonOcho" mnemonicParsing="false" prefHeight="55.0" prefWidth="59.0" text="8">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonCero" mnemonicParsing="false" prefHeight="55.0" prefWidth="59.0" text="0">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="440.0" layoutY="97.0" prefHeight="240.0" prefWidth="70.0" spacing="2.0">
+         <children>
+            <Button fx:id="botonTres" mnemonicParsing="false" prefHeight="55.0" prefWidth="59.0" text="3">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonSeis" mnemonicParsing="false" prefHeight="55.0" prefWidth="59.0" text="6">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonNueve" mnemonicParsing="false" prefHeight="55.0" prefWidth="59.0" text="9">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonBack" mnemonicParsing="false" prefHeight="55.0" prefWidth="59.0" text="←">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <HBox alignment="BOTTOM_RIGHT" layoutY="373.0" prefHeight="26.0" prefWidth="550.0">
+         <children>
+            <MenuButton mnemonicParsing="false" text="Opciones">
+              <items>
+                <MenuItem fx:id="servidorItem" mnemonicParsing="false" text="Servidor" />
+                <MenuItem fx:id="bdItem" mnemonicParsing="false" text="Base de datos" />
+              </items>
+            </MenuButton>
+         </children>
+      </HBox>
+   </children>
+</Pane>

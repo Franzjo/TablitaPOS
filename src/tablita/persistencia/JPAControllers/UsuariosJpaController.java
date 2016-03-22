@@ -256,5 +256,17 @@ public class UsuariosJpaController implements Serializable {
             em.close();
         }
     }
+
+    public int getLastRegister(){
+        EntityManager em = getEntityManager();
+        try{
+            TypedQuery<Usuarios> query = em.createQuery("select u from Usuarios u order by u.idUsuario desc", Usuarios.class);
+            Usuarios u = query.setMaxResults(1).getResultList().get(0);
+            return u.getIdUsuario() >= 0 ? u.getIdUsuario() : 0;
+        } finally {
+            em.close();
+        }
+
+    }
     
 }

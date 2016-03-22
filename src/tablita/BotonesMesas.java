@@ -54,7 +54,7 @@ public class BotonesMesas {
                             b.setText(b.getText()+"*");
                             b.setOnAction(event -> {
                                 FXMLLoader loader =
-                                        new FXMLLoader(getClass().getResource("../tablita/views/empleados/VistaEmpleadoOrden.fxml"));
+                                        new FXMLLoader(getClass().getResource("/tablita/views/empleados/VistaEmpleadoOrden.fxml"));
                                 Parent root = null;
                                 try {
                                     root = loader.load();
@@ -72,7 +72,7 @@ public class BotonesMesas {
                         } else {
                             b.setOnAction(event -> {
                                 FXMLLoader loader =
-                                        new FXMLLoader(getClass().getResource("../tablita/views/empleados/VistaEmpleadoOrden.fxml"));
+                                        new FXMLLoader(getClass().getResource("/tablita/views/empleados/VistaEmpleadoOrden.fxml"));
                                 Parent root = null;
                                 try {
                                     root = loader.load();

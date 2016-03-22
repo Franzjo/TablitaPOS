@@ -1,44 +1,33 @@
 package tablita;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
-import tablita.persistencia.JPAControllers.VentasJpaController;
-import tablita.persistencia.Ventas;
-
-import java.util.List;
 
 public class Main extends Application {
-
-
-
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         ViewsManager.setStage(primaryStage);
-        VentasJpaController vjpa = new VentasJpaController(CreadorEntityManager.emf());
-        //Parent root = FXMLLoader.load(getClass().getResource("views/administrador/VistaAdministrador.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("views/cajero/VistaCajeroIncio.fxml"));
-
-        //Parent root = FXMLLoader.load(getClass().getResource("views/empleados/VistaEmpleado.fxml"));
-        //ViewsManager.cambiarVentana("TablitaPOS",root);
 
 
-        List<Ventas> ventas = vjpa.findByAnio();
+//        ReportesDatos r = new ReportesDatos();
+//        Instant ins = Instant.now();
+//        System.out.println("r.productosPopulares(3) = " + r.productosPopularesAnual(2016,true).size());
+//        Instant ins2 = Instant.now();
+//        System.out.println(ins2.toEpochMilli() - ins.toEpochMilli());
 
-        GeneradorJson.generarJson(ventas);
-        
-        
-//        primaryStage.setTitle("TablitaPOS");
-//        primaryStage.setScene(new Scene(root, 1024, 768));
-//        primaryStage.show();
+        Parent root = FXMLLoader.load(getClass().getResource("views/login.fxml"));
+        primaryStage.setTitle("TablitaPOS");
+        primaryStage.setScene(new Scene(root, 550, 400));
+        primaryStage.show();
     }
-
-
-
 
     public static void main(String[] args) {
         launch(args);
-        //RolesFactory.initialize();
+        RolesFactory.initialize();
 
     }
 }

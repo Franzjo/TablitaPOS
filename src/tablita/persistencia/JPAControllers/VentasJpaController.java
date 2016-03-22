@@ -16,6 +16,10 @@ import javax.persistence.*;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.time.*;
+import java.time.temporal.TemporalField;
+import java.time.temporal.WeekFields;
 import java.util.*;
 
 /**
@@ -293,73 +297,124 @@ public class VentasJpaController implements Serializable {
         }
     }
 
-    public List<Ventas> findByDia(){
+    public List<Ventas> ventasDiarias(){
         EntityManager em = getEntityManager();
         try{
-            // today
-            Calendar cal = new GregorianCalendar();
-            // reset hour, minutes, seconds and millis
-            cal.set(Calendar.HOUR_OF_DAY, 0);
-            cal.set(Calendar.MINUTE, 0);
-            cal.set(Calendar.SECOND, 0);
-            cal.set(Calendar.MILLISECOND, 0);
+            LocalTime midnight = LocalTime.MIDNIGHT;
+            LocalDate today = LocalDate.now(ZoneId.of("America/El_Salvador"));
+            LocalDateTime todayMidnight = LocalDateTime.of(today, midnight);
+            LocalDateTime tomorrowMidnight = todayMidnight.plusDays(1);
 
-            Date date = cal.getTime();
+            TypedQuery<Ventas> query = em.createQuery(" select v from Ventas v where v.fechaHora > :fecha and v.fechaHora < :fin", Ventas.class);
+
+            query.setParameter("fecha",new Timestamp(todayMidnight.toInstant(ZoneOffset.ofHours(0)).toEpochMilli()), TemporalType.TIMESTAMP);
+            query.setParameter("fin",new Timestamp(tomorrowMidnight.toInstant(ZoneOffset.ofHours(0)).toEpochMilli()) , TemporalType.TIMESTAMP);
+
+            return query.getResultList();
+
+
+        } finally {
+            em.close();
+        }
+    }
+
+    public List<Ventas> findTotalThisSemana(){
+        EntityManager em = getEntityManager();
+        try{
+
+            LocalTime midnight = LocalTime.MIDNIGHT;
+            LocalDate today = LocalDate.now(ZoneId.of("America/El_Salvador"));
+            LocalDateTime todayMidnight = LocalDateTime.of(today, midnight);
+
+            TemporalField diaDeSemana = WeekFields.of(Locale.getDefault()).dayOfWeek();
+
+            LocalDateTime primerDia = todayMidnight.with(diaDeSemana, 1);
 
             TypedQuery<Ventas> query = em.createQuery(" select v from Ventas v where v.fechaHora > :date", Ventas.class);
 
-            query.setParameter("date", date);
+            query.setParameter("date", new Timestamp(primerDia.toInstant(ZoneOffset.ofHours(0)).toEpochMilli()),TemporalType.TIMESTAMP);
             return query.getResultList();
         } finally {
             em.close();
         }
     }
 
-    public List<Ventas> findBySemana(){
+    public List<Ventas> findTotalThisMes(){
         EntityManager em = getEntityManager();
         try{
 
-            Calendar cal = new GregorianCalendar();
-            // reset hour, minutes, seconds and millis
+            LocalTime midnight = LocalTime.MIDNIGHT;
+            LocalDate today = LocalDate.now(ZoneId.of("America/El_Salvador"));
+            LocalDateTime todayMidnight = LocalDateTime.of(today, midnight);
 
-            int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK) - cal.getFirstDayOfWeek();
-            cal.add(Calendar.DAY_OF_MONTH, -dayOfWeek);
-            cal.set(Calendar.HOUR_OF_DAY, 0);
-            cal.set(Calendar.MINUTE, 0);
-            cal.set(Calendar.SECOND, 0);
-            cal.set(Calendar.MILLISECOND, 0);
-
-            Date date = cal.getTime();
+            LocalDateTime primerDiaMes = todayMidnight.withDayOfMonth(1);
 
             TypedQuery<Ventas> query = em.createQuery(" select v from Ventas v where v.fechaHora > :date", Ventas.class);
 
-            query.setParameter("date", date);
+            query.setParameter("date", new Timestamp(primerDiaMes.toInstant(ZoneOffset.ofHours(0)).toEpochMilli()),TemporalType.TIMESTAMP);
             return query.getResultList();
         } finally {
             em.close();
         }
     }
 
-    public List<Ventas> findByAnio(){
+    public List<Ventas> findByMes(int month){
         EntityManager em = getEntityManager();
         try{
-            Calendar cal = new GregorianCalendar();
-            // reset hour, minutes, seconds and millis
+            LocalTime midnight = LocalTime.MIDNIGHT;
+            LocalDate today = LocalDate.now(ZoneId.of("America/El_Salvador"));
 
-            int dayOfMonth = cal.get(Calendar.DAY_OF_YEAR) -1;
+            LocalDateTime primerDiaMes = LocalDateTime.of(today,midnight).withDayOfMonth(1).withMonth(month);
+            LocalDateTime ultimoDiaMes = primerDiaMes.plusDays(primerDiaMes.getMonth().maxLength());
 
-            cal.add(Calendar.DAY_OF_YEAR, -dayOfMonth);
-            cal.set(Calendar.HOUR_OF_DAY, 0);
-            cal.set(Calendar.MINUTE, 0);
-            cal.set(Calendar.SECOND, 0);
-            cal.set(Calendar.MILLISECOND, 0);
+            TypedQuery<Ventas> query = em.createQuery(" select v from Ventas v where v.fechaHora > :fecha and v.fechaHora < :fin", Ventas.class);
 
-            Date date = cal.getTime();
+            query.setParameter("fecha",new Timestamp(primerDiaMes.toInstant(ZoneOffset.ofHours(0)).toEpochMilli()), TemporalType.TIMESTAMP);
+            query.setParameter("fin",new Timestamp(ultimoDiaMes.toInstant(ZoneOffset.ofHours(0)).toEpochMilli()) , TemporalType.TIMESTAMP);
+
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    public List<Ventas> findTotalByAnio(){
+        EntityManager em = getEntityManager();
+        try{
+
+            LocalTime midnight = LocalTime.MIDNIGHT;
+            LocalDate today = LocalDate.now(ZoneId.of("America/El_Salvador"));
+            LocalDateTime todayMidnight = LocalDateTime.of(today, midnight);
+
+            LocalDateTime primerDiaAnio = todayMidnight.withDayOfYear(1);
 
             TypedQuery<Ventas> query = em.createQuery(" select v from Ventas v where v.fechaHora > :date and " +
                     "v.activa = false", Ventas.class);
 
-            query.setParameter("date", date);
+            query.setParameter("date", new Timestamp(primerDiaAnio.toInstant(ZoneOffset.ofHours(0)).toEpochMilli()) , TemporalType.TIMESTAMP);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    public List<Ventas> findTotalByAnio(int anio){
+        EntityManager em = getEntityManager();
+        try{
+
+            LocalTime midnight = LocalTime.MIDNIGHT;
+            LocalDate today = LocalDate.now(ZoneId.of("America/El_Salvador"));
+            LocalDateTime primerDiaAnio = LocalDateTime.of(today, midnight).withDayOfYear(1);
+            LocalDateTime ultimoDiaAnio = primerDiaAnio.plusYears(1);
+
+
+
+            TypedQuery<Ventas> query = em.createQuery(" select v from Ventas v where v.fechaHora > :fecha and v.fechaHora < :fin", Ventas.class);
+
+            query.setParameter("fecha",new Timestamp(primerDiaAnio.toInstant(ZoneOffset.ofHours(0)).toEpochMilli()), TemporalType.TIMESTAMP);
+            query.setParameter("fin",new Timestamp(ultimoDiaAnio.toInstant(ZoneOffset.ofHours(0)).toEpochMilli()) , TemporalType.TIMESTAMP);
+
+//            query.setParameter("date", date);
             return query.getResultList();
         } finally {
             em.close();

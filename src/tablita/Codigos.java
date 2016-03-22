@@ -96,4 +96,7 @@ public class Codigos {
 
         return outputStream.toByteArray();
     }
+
+    public static byte[] cashDrawerKick(){
+        return new byte[]{16,20,1,0,5};}
 }

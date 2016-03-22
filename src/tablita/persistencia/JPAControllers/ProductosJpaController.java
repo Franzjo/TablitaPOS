@@ -115,39 +115,55 @@ public class ProductosJpaController implements Serializable {
                 throw new IllegalOrphanException(illegalOrphanMessages);
             }
             Collection<DetallesVentas> attachedDetallesVentasCollectionNew = new ArrayList<DetallesVentas>();
-            for (DetallesVentas detallesVentasCollectionNewDetallesVentasToAttach : detallesVentasCollectionNew) {
-                detallesVentasCollectionNewDetallesVentasToAttach = em.getReference(detallesVentasCollectionNewDetallesVentasToAttach.getClass(), detallesVentasCollectionNewDetallesVentasToAttach.getIdDetallesVentas());
-                attachedDetallesVentasCollectionNew.add(detallesVentasCollectionNewDetallesVentasToAttach);
+            if (detallesVentasCollectionNew != null) {
+
+
+                for (DetallesVentas detallesVentasCollectionNewDetallesVentasToAttach : detallesVentasCollectionNew) {
+                    detallesVentasCollectionNewDetallesVentasToAttach = em.getReference(detallesVentasCollectionNewDetallesVentasToAttach.getClass(), detallesVentasCollectionNewDetallesVentasToAttach.getIdDetallesVentas());
+                    attachedDetallesVentasCollectionNew.add(detallesVentasCollectionNewDetallesVentasToAttach);
+                }
+                detallesVentasCollectionNew = attachedDetallesVentasCollectionNew;
+                productos.setDetallesVentasCollection(detallesVentasCollectionNew);
+
             }
-            detallesVentasCollectionNew = attachedDetallesVentasCollectionNew;
-            productos.setDetallesVentasCollection(detallesVentasCollectionNew);
             Collection<MenuProducto> attachedMenuProductoCollectionNew = new ArrayList<MenuProducto>();
-            for (MenuProducto menuProductoCollectionNewMenuProductoToAttach : menuProductoCollectionNew) {
-                menuProductoCollectionNewMenuProductoToAttach = em.getReference(menuProductoCollectionNewMenuProductoToAttach.getClass(), menuProductoCollectionNewMenuProductoToAttach.getIdMenuProducto());
-                attachedMenuProductoCollectionNew.add(menuProductoCollectionNewMenuProductoToAttach);
+
+
+            if(menuProductoCollectionNew != null) {
+                for (MenuProducto menuProductoCollectionNewMenuProductoToAttach : menuProductoCollectionNew) {
+                    menuProductoCollectionNewMenuProductoToAttach = em.getReference(menuProductoCollectionNewMenuProductoToAttach.getClass(), menuProductoCollectionNewMenuProductoToAttach.getIdMenuProducto());
+                    attachedMenuProductoCollectionNew.add(menuProductoCollectionNewMenuProductoToAttach);
+                }
+                menuProductoCollectionNew = attachedMenuProductoCollectionNew;
+                productos.setMenuProductoCollection(menuProductoCollectionNew);
             }
-            menuProductoCollectionNew = attachedMenuProductoCollectionNew;
-            productos.setMenuProductoCollection(menuProductoCollectionNew);
+
             productos = em.merge(productos);
-            for (DetallesVentas detallesVentasCollectionNewDetallesVentas : detallesVentasCollectionNew) {
-                if (!detallesVentasCollectionOld.contains(detallesVentasCollectionNewDetallesVentas)) {
-                    Productos oldIdProductosOfDetallesVentasCollectionNewDetallesVentas = detallesVentasCollectionNewDetallesVentas.getIdProductos();
-                    detallesVentasCollectionNewDetallesVentas.setIdProductos(productos);
-                    detallesVentasCollectionNewDetallesVentas = em.merge(detallesVentasCollectionNewDetallesVentas);
-                    if (oldIdProductosOfDetallesVentasCollectionNewDetallesVentas != null && !oldIdProductosOfDetallesVentasCollectionNewDetallesVentas.equals(productos)) {
-                        oldIdProductosOfDetallesVentasCollectionNewDetallesVentas.getDetallesVentasCollection().remove(detallesVentasCollectionNewDetallesVentas);
-                        oldIdProductosOfDetallesVentasCollectionNewDetallesVentas = em.merge(oldIdProductosOfDetallesVentasCollectionNewDetallesVentas);
+
+            if(detallesVentasCollectionNew != null){
+                for (DetallesVentas detallesVentasCollectionNewDetallesVentas : detallesVentasCollectionNew) {
+                    if (!detallesVentasCollectionOld.contains(detallesVentasCollectionNewDetallesVentas)) {
+                        Productos oldIdProductosOfDetallesVentasCollectionNewDetallesVentas = detallesVentasCollectionNewDetallesVentas.getIdProductos();
+                        detallesVentasCollectionNewDetallesVentas.setIdProductos(productos);
+                        detallesVentasCollectionNewDetallesVentas = em.merge(detallesVentasCollectionNewDetallesVentas);
+                        if (oldIdProductosOfDetallesVentasCollectionNewDetallesVentas != null && !oldIdProductosOfDetallesVentasCollectionNewDetallesVentas.equals(productos)) {
+                            oldIdProductosOfDetallesVentasCollectionNewDetallesVentas.getDetallesVentasCollection().remove(detallesVentasCollectionNewDetallesVentas);
+                            oldIdProductosOfDetallesVentasCollectionNewDetallesVentas = em.merge(oldIdProductosOfDetallesVentasCollectionNewDetallesVentas);
+                        }
                     }
                 }
             }
-            for (MenuProducto menuProductoCollectionNewMenuProducto : menuProductoCollectionNew) {
-                if (!menuProductoCollectionOld.contains(menuProductoCollectionNewMenuProducto)) {
-                    Productos oldIdProductosOfMenuProductoCollectionNewMenuProducto = menuProductoCollectionNewMenuProducto.getIdProductos();
-                    menuProductoCollectionNewMenuProducto.setIdProductos(productos);
-                    menuProductoCollectionNewMenuProducto = em.merge(menuProductoCollectionNewMenuProducto);
-                    if (oldIdProductosOfMenuProductoCollectionNewMenuProducto != null && !oldIdProductosOfMenuProductoCollectionNewMenuProducto.equals(productos)) {
-                        oldIdProductosOfMenuProductoCollectionNewMenuProducto.getMenuProductoCollection().remove(menuProductoCollectionNewMenuProducto);
-                        oldIdProductosOfMenuProductoCollectionNewMenuProducto = em.merge(oldIdProductosOfMenuProductoCollectionNewMenuProducto);
+
+            if(menuProductoCollectionNew != null) {
+                for (MenuProducto menuProductoCollectionNewMenuProducto : menuProductoCollectionNew) {
+                    if (!menuProductoCollectionOld.contains(menuProductoCollectionNewMenuProducto)) {
+                        Productos oldIdProductosOfMenuProductoCollectionNewMenuProducto = menuProductoCollectionNewMenuProducto.getIdProductos();
+                        menuProductoCollectionNewMenuProducto.setIdProductos(productos);
+                        menuProductoCollectionNewMenuProducto = em.merge(menuProductoCollectionNewMenuProducto);
+                        if (oldIdProductosOfMenuProductoCollectionNewMenuProducto != null && !oldIdProductosOfMenuProductoCollectionNewMenuProducto.equals(productos)) {
+                            oldIdProductosOfMenuProductoCollectionNewMenuProducto.getMenuProductoCollection().remove(menuProductoCollectionNewMenuProducto);
+                            oldIdProductosOfMenuProductoCollectionNewMenuProducto = em.merge(oldIdProductosOfMenuProductoCollectionNewMenuProducto);
+                        }
                     }
                 }
             }
@@ -263,5 +279,4 @@ public class ProductosJpaController implements Serializable {
             em.close();
         }
     }
-    
 }

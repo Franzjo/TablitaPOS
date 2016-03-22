@@ -410,7 +410,7 @@ public class EmpleadoOrdenController {
     }
 
     private void goHome() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../views/empleados/VistaEmpleado.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/tablita/views/empleados/VistaEmpleado.fxml"));
         ViewsManager.cambiarVentana("TablitaPOS",root);
     }
 

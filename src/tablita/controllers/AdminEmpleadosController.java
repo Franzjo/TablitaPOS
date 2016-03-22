@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import tablita.CreadorEntityManager;
+import tablita.Passwords;
 import tablita.RolesFactory;
 import tablita.ViewsManager;
 import tablita.persistencia.JPAControllers.UsuariosJpaController;
@@ -50,12 +51,15 @@ public class AdminEmpleadosController {
     @FXML
     Button botonInicio;
     @FXML
+    Button botonProductos;
+    @FXML
+    Button botonClientes;
+    @FXML
     Button botonActualizar;
 
     private ObservableList<Usuarios> empleados = FXCollections.observableArrayList(ujpa.findByRole(RolesFactory.empleado()));
 
-    public AdminEmpleadosController() {
-    }
+    public AdminEmpleadosController() {}
 
     @FXML
     private void initialize(){
@@ -106,17 +110,15 @@ public class AdminEmpleadosController {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             });
             empleados = FXCollections.observableArrayList(ujpa.findByRole(RolesFactory.empleado()));
             viewEmpleados.getItems().clear();
             viewEmpleados.setItems(empleados);
-
         });
 
         botonInicio.setOnAction(event -> {
             try {
-                Parent parent = FXMLLoader.load(getClass().getResource("../views/administrador/VistaAdministrador.fxml"));
+                Parent parent = FXMLLoader.load(getClass().getResource("/tablita/views/administrador/VistaAdministrador.fxml"));
                 ViewsManager.cambiarVentana("TablitaPOS", parent);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -125,6 +127,15 @@ public class AdminEmpleadosController {
         });
 
         viewEmpleados.setItems(empleados);
+
+
+
+
+        botonClientes.setOnAction(e -> irAClientes());
+
+        botonProductos.setOnAction(e -> irAProductos());
+
+
     }
 
     private class UpdateEmpleadoDialog extends NuevoEmpleadoDialog{
@@ -166,6 +177,8 @@ public class AdminEmpleadosController {
         TextField dui = new TextField();
         TextField nit = new TextField();
         TextField tel = new TextField();
+        PasswordField pass = new PasswordField();
+        CheckBox showPass = new CheckBox("Mostrar");
 
 
         public NuevoEmpleadoDialog() {
@@ -176,28 +189,33 @@ public class AdminEmpleadosController {
 
             grid.setHgap(10);
             grid.setVgap(10);
-            grid.setPadding(new Insets(20,150,10,10));
+            grid.setPadding(new Insets(20,20,10,10));
 
             nombres.setPromptText("Nombres");
             apellidos.setPromptText("Apellidos");
             dui.setPromptText("DUI");
             nit.setPromptText("NIT");
-            tel.setPromptText("TEL");
+            tel.setPromptText("####-####");
+            pass.setPromptText("Contraseña");
 
-            grid.add(new Label("Nombre"),0,0);
+            grid.add(new Label("Nombres"),0,0);
             grid.add(nombres,1,0);
 
             grid.add(new Label("Apellidos"),0,1);
             grid.add(apellidos,1,1);
 
-            grid.add(new Label("DUI"),0,2);
-            grid.add(dui,1,2);
+            grid.add(new Label("Contraseña"),0,2);
+            grid.add(pass,1,2);
+//            grid.add(new CheckBox("Mostrar"),2,2);
 
-            grid.add(new Label("NIT"),0,3);
-            grid.add(nit,1,3);
+            grid.add(new Label("DUI"),0,3);
+            grid.add(dui,1,3);
 
-            grid.add(new Label("TEL"),0,4);
-            grid.add(tel,1,4);
+            grid.add(new Label("NIT"),0,4);
+            grid.add(nit,1,4);
+
+            grid.add(new Label("TEL"),0,5);
+            grid.add(tel,1,5);
 
             Node nodeCrear = this.getDialogPane().lookupButton(botonCrear);
             nodeCrear.setDisable(true);
@@ -229,25 +247,53 @@ public class AdminEmpleadosController {
             this.setResultConverter(dialogButton -> {
                 if(dialogButton == botonCrear){
                     Usuarios u = new Usuarios();
-                    u.setCodigo(codigo(nombres.getText(),apellidos.getText(),nit.getText()));
+                    u.setCodigo(codigo(RolesFactory.empleado().getIdRol()));
                     u.setNombres(nombres.getText());
                     u.setApellidos(apellidos.getText());
                     u.setDui(Integer.valueOf(dui.getText()));
                     u.setNit(nit.getText());
                     u.setTel(Integer.valueOf(tel.getText()));
                     u.setIdRol(RolesFactory.empleado());
+                    byte[] salt = Passwords.getNextSalt();
+                    u.setSalt(salt);
+                    String text = pass.getText().toString();
+                    byte[] passBytes = Passwords.hash(text.toCharArray(),salt);
+
+                    u.setPass(passBytes);
                     return u;
                 }
                 return null;
             });
         }
 
-        public String codigo (String nombre, String apellido, String nit){
-            String cod = String.valueOf(nombre.charAt(0));
-            cod = cod + String.valueOf(apellido.charAt(0));
-            cod = cod + nit.substring(4,8);
-            return cod;
-        }
+        public String codigo (int idRol){
+            String idRolString = String.format("%02d",idRol);
+            int ultimoRegistro = ujpa.getLastRegister();
+            String ultimoRegistroString = String.format("%02d",ultimoRegistro + 1);
 
+            return idRolString + ultimoRegistroString;
+        }
     }
+
+
+    private void irAProductos()  {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/tablita/views/administrador/VistaAdministradorProductos.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ViewsManager.cambiarVentana("TablitaPOS - Empleados",root);
+    }
+    private void irAClientes() {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/tablita/views/administrador/VistaAdministradorReserva.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ViewsManager.cambiarVentana("TablitaPOS - Empleados",root);
+    }
+
+
 }

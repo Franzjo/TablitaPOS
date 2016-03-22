@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="8908721">
+  <component name="DataSourceManagerImpl" format="xml" hash="3593981424">
     <data-source source="LOCAL" name="MySQL - TablitaDB@localhost" uuid="ca73a489-daf4-4988-a378-26750e4b74c8">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -14,11 +14,17 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="PostgreSQL - TablitaDB@localhost" uuid="fb7f6d77-07a8-4508-b75b-c23a873022be">
+    <data-source source="LOCAL" name="PostgreSQL - TablitaDB@elephant" uuid="fb7f6d77-07a8-4508-b75b-c23a873022be">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/TablitaDB</jdbc-url>
+      <jdbc-url>jdbc:postgresql://pellefant-01.db.elephantsql.com:5432/xcujvzgi</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="PostgreSQL - postgres@localhost" uuid="3ca52930-fe56-44e1-9757-9422f1170499">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
     </data-source>
   </component>
 </project>

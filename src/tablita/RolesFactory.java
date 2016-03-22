@@ -16,15 +16,26 @@ public class RolesFactory {
 
     private static EntityManagerFactory emf = CreadorEntityManager.emf();
     private static tablita.persistencia.JPAControllers.RolesJpaController rolesJpa = new RolesJpaController(emf);
+
+    public static int EMPLEADOROL;
+    public static int CAJEROROL;
+    public static int ADMINROL;
+
+
+
     static List<Roles>
         roles = rolesJpa.findRolesEntities();
 
     public static void initialize(){
+        EMPLEADOROL = empleado().getIdRol();
+        CAJEROROL = cajero().getIdRol();
+        ADMINROL = admin().getIdRol();
     }
 
     public static Roles empleado (){
         for (Roles r: roles) {
             if(r.getNombre().equalsIgnoreCase("empleado"))
+                EMPLEADOROL = r.getIdRol();
                 return r;
         }
         return null;
@@ -32,6 +43,7 @@ public class RolesFactory {
     public static Roles cajero (){
         for (Roles r: roles) {
             if(r.getNombre().equalsIgnoreCase("cajero"))
+                CAJEROROL = r.getIdRol();
                 return r;
         }
         return null;
@@ -39,6 +51,7 @@ public class RolesFactory {
     public static Roles admin (){
         for (Roles r: roles) {
             if(r.getNombre().equalsIgnoreCase("admin"))
+                ADMINROL = r.getIdRol();
                 return r;
         }
         return null;

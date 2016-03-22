@@ -38,11 +38,16 @@ public class Usuarios implements Serializable {
     @Basic(optional = false)
     @Column(name = "nombres")
     private String nombres;
+
+    @Column(name = "salt")
+    private byte[] salt;
+
+
     @Column(name = "apellidos")
     private String apellidos;
     @Basic(optional = false)
     @Column(name = "pass")
-    private String pass;
+    private byte[] pass;
     @Column(name = "DUI")
     private Integer dui;
     @Column(name = "NIT")
@@ -62,7 +67,7 @@ public class Usuarios implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public Usuarios(Integer idUsuario, String codigo, String nombres, String pass) {
+    public Usuarios(Integer idUsuario, String codigo, String nombres, byte[] pass) {
         this.idUsuario = idUsuario;
         this.codigo = codigo;
         this.nombres = nombres;
@@ -101,11 +106,11 @@ public class Usuarios implements Serializable {
         this.apellidos = apellidos;
     }
 
-    public String getPass() {
+    public byte[] getPass() {
         return pass;
     }
 
-    public void setPass(String pass) {
+    public void setPass(byte[] pass) {
         this.pass = pass;
     }
 
@@ -173,5 +178,12 @@ public class Usuarios implements Serializable {
     public String toString() {
         return "tablita.persistencia.Usuarios[ idUsuario=" + idUsuario + " ]";
     }
-    
+
+    public byte[] getSalt() {
+        return salt;
+    }
+
+    public void setSalt(byte[] salt) {
+        this.salt = salt;
+    }
 }

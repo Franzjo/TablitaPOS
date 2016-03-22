@@ -24,4 +24,11 @@ public class ViewsManager {
 //        FlatterFX.style();
         stage.show();
     }
+
+    public static void cambiarVentana(String titulo, Parent parent, int width, int heigh){
+        stage.setTitle(titulo);
+        stage.setScene(new Scene(parent, width, heigh));
+//        FlatterFX.style();
+        stage.show();
+    }
 }

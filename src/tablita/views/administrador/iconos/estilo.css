@@ -1,0 +1,189 @@
+.button {
+    /*-fx-background-color: #df691a;*/
+    -fx-background-color: #4e5d6c;
+    -fx-text-fill: snow;
+}
+.chart .chart-legend .chart-legend-item .text {
+	-fx-text-fill: #df691a !important; 
+	-fx-fill: #df691a !important; 
+}
+
+.chart .chart-legend .text{
+	-fx-text-fill: #df691a !important; 
+	-fx-fill: #df691a !important; 
+}
+
+.check-box:selected:determinate .box .mark{
+	-fx-background-color: #df691a;
+}
+
+.check-box:selected:determinate .box {
+	-fx-backgroud-color: snow;
+}
+
+.label {
+    -fx-text-fill: snow;
+}
+
+.check-box:selected:determinate .text {
+    -fx-fill: snow;
+}
+
+.check-box:determinate .text {
+    -fx-fill: snow;
+}
+
+.toggle-button:selected {
+	-fx-background-color: #df691a;
+    -fx-text-fill: snow;
+}
+
+.toggle-button {
+	-fx-background-color: #4e5d6c;
+    -fx-text-fill: snow;
+	-fx-background-insets: 0px,0px,0px,0px,0px,0px,0px; 
+
+}
+
+.total {
+	-fx-text-fill: #df691a !important;
+}
+
+.button-primary {
+    -fx-background-color: #df691a;
+    /*-fx-border-color: #2b3e50;
+    -fx-border-radius: 1px;*/
+    -fx-text-fill: white;
+}
+
+
+.button:pressed {
+    -fx-background-color: #485563;
+    -fx-font-size: 16 px;
+}
+
+.menu-izquierdo {
+    -fx-background-color: #485563;
+    -fx-border-color: #2b3e50;
+    -fx-border-radius: 0.5px;
+}
+
+.barra-superior {
+    -fx-background-color: #485563;
+    -fx-border-color: #2b3e50;
+    -fx-border-radius: 0.5px;
+}
+
+.root {
+    -fx-background-color: #2b3e50;
+    -fx-text-fill: snow;
+}
+
+.table-column{
+    -fx-background-color: #4e5d6c;
+    -fx-border-color: #2b3e50;
+}
+
+.table-column .label{
+    -fx-text-fill: snow;
+}
+
+.table-view .placeholder{
+    -fx-background-color: #2b3e50;
+}
+
+.table-row-cell:selected:even .cell {
+    -fx-background-color: #df691a;
+}
+.table-row-cell:selected:odd .cell {
+    -fx-background-color: #df691a;
+}
+.table-row-cell:selected .text {
+    -fx-fill: snow ;
+    -fx-font-weight: bold;
+}
+.table-row-cell .text{
+    -fx-fill: snow;
+}
+
+.cell{
+    -fx-text-fill: snow;
+    -fx-background-color: #2b3e50;
+}
+
+.placeholder .label .text{
+    -fx-fill: snow;
+}
+
+.list-view {
+    -fx-background-color: #2b3e50;
+    -fx-border-color: #4e5d6c;
+    -fx-border-radius: 1px;
+}
+
+.list-cell:even:selected {
+    -fx-text-fill: snow;
+    -fx-font-weight: bold;
+    -fx-background-color: #df691a;
+}
+
+.list-cell:odd:selected{
+    -fx-background-color: #df691a;
+    -fx-text-fill: snow;
+    -fx-font-weight: bold;
+}
+
+.list-cell:even {
+    -fx-text-fill: snow;
+    -fx-background-color: #2b3e50;
+}
+
+.list-cell:odd{
+    -fx-background-color: #2b3e50;
+    -fx-text-fill: snow;
+}
+
+.texto {
+    -fx-fill: snow;
+}
+
+.texto-total {
+    -fx-fill: #df691a;
+    -fx-font-weight: bold;
+}
+
+.slider .thumb {
+    -fx-background-color: #df691a;
+    -fx-background-radius: 15px;
+    -fx-scale-y: 1.5;
+    -fx-shape: "M 0 0 L 180 0 L 180 90 L 180 180 L 0 180";
+    -fx-effect: dropshadow(gaussian, #485563, 1, 0.2, 1, 1);
+}
+
+.button {
+    -fx-alignment: center;
+}
+
+
+/*DIALOG PANE*/
+
+.myDialog{
+    --fx-background-color: #2b3e50;
+    -fx-text-fill: snow;
+}
+.myDialog > *.button-bar > *.container{
+    -fx-background-color: #2b3e50;
+    -fx-text-fill: snow;
+}
+.myDialog > *.label.content{
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+.myDialog:header *.header-panel{
+    -fx-background-color: #485563;
+    -fx-text-fill: snow;
+}
+.myDialog:header *.header-panel *.label{
+    -fx-font-size: 18px;
+    -fx-fill: snow;
+}

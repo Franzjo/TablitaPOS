@@ -56,7 +56,7 @@ public class BotonesMesasCajero {
                                 // TODO: 11-25-15 remove
                                 final int u;
                                 FXMLLoader loader =
-                                        new FXMLLoader(getClass().getResource("../tablita/views/cajero/VistaCajeroOrdenesActivas.fxml"));
+                                        new FXMLLoader(getClass().getResource("/tablita/views/cajero/VistaCajeroOrdenesActivas.fxml"));
                                 Parent root = null;
                                 try {
                                     root = loader.load();

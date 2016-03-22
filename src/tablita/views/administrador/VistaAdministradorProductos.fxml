@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -7,18 +8,46 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@iconos/estilo.css" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tablita.controllers.AdminProductosController">
    <children>
-      <VBox layoutX="10.0" layoutY="3.0" prefHeight="753.0" prefWidth="105.0">
+      <ImageView fitHeight="194.0" fitWidth="148.0" layoutX="878.0" layoutY="600.0" opacity="0.44" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@iconos/Logo.png" />
+         </image>
+      </ImageView>
+      <HBox fx:id="contentHbox" alignment="CENTER" fillHeight="false" layoutX="100.0" layoutY="100.0" prefHeight="668.0" prefWidth="924.0" spacing="25.0">
          <children>
-            <VBox prefHeight="96.0" prefWidth="119.0">
+            <TableView fx:id="viewProductos" prefHeight="588.0" prefWidth="763.0">
+               <columns>
+                  <TableColumn fx:id="ipProductos" prefWidth="55.0" text="ID" />
+                  <TableColumn fx:id="item" prefWidth="350.0" text="Item" />
+                  <TableColumn fx:id="precio" prefWidth="172.0" text="Precio" />
+                  <TableColumn fx:id="tipo" minWidth="0.0" prefWidth="97.0" text="Tipo" />
+                  <TableColumn fx:id="gravado" minWidth="0.0" prefWidth="87.0" text="Gravado" />
+               </columns>
+            </TableView>
+            <VBox alignment="CENTER" prefHeight="330.0" prefWidth="90.0">
                <children>
-                  <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="100.0" textAlignment="CENTER" underline="true" wrapText="true">
+                  <Button fx:id="nuevoProductoBtn" mnemonicParsing="false" prefHeight="77.0" prefWidth="90.0" text="Nuevo" />
+                  <Separator prefHeight="35.0" prefWidth="97.0" />
+                  <Button fx:id="editarProductoBtn" mnemonicParsing="false" prefHeight="77.0" prefWidth="90.0" text="Editar" />
+                  <Separator prefHeight="33.0" prefWidth="97.0" />
+                  <Button fx:id="eliminarProductoBtn" mnemonicParsing="false" prefHeight="77.0" prefWidth="90.0" text="Eliminar" />
+                  <Separator prefHeight="40.0" prefWidth="97.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" prefHeight="768.0" prefWidth="100.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="105.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="botonInicio" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" textAlignment="CENTER" underline="true" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="93.0" fitWidth="119.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@iconos/home153.png" />
                            </image>
@@ -28,85 +57,57 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio" textAlignment="CENTER" wrappingWidth="120.80338287353516">
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="75.0" text="INICIO" textAlignment="CENTER">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="15.0" />
                      </font>
-                  </Text>
+                  </Label>
                </children>
             </VBox>
-            <Separator prefHeight="6.0" prefWidth="100.0" />
-            <VBox prefHeight="132.0" prefWidth="121.0">
+            <VBox alignment="CENTER" prefHeight="105.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="100.0">
+                  <Button fx:id="botonEmpleados" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
                      <graphic>
-                        <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@iconos/40323.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Empleados" textAlignment="CENTER" wrappingWidth="111.47004699707031">
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="99.0" text="EMPLEADOS">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="15.0" />
                      </font>
-                  </Text>
-                  <Separator prefHeight="0.0" prefWidth="123.0" />
+                  </Label>
                </children>
             </VBox>
-            <VBox prefHeight="131.0" prefWidth="121.0">
+            <VBox alignment="CENTER" prefHeight="105.0" prefWidth="100.0">
                <children>
-                  <Button alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="102.0" prefWidth="115.0">
+                  <Button fx:id="botonProductos" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
                      <graphic>
-                        <ImageView fitHeight="88.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@iconos/retail-1.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Productos" textAlignment="CENTER" wrappingWidth="120.80338287353516">
+                  <Label text="PRODUCTOS">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="15.0" />
                      </font>
-                  </Text>
-                  <Separator prefWidth="200.0" />
+                  </Label>
                </children>
             </VBox>
-            <VBox prefHeight="131.0" prefWidth="121.0">
+            <VBox alignment="CENTER" prefHeight="105.0" prefWidth="100.0">
                <children>
-                  <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="115.0" textAlignment="CENTER" underline="true" wrapText="true">
+                  <Button fx:id="botonClientes" alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" textAlignment="CENTER" underline="true" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="83.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@iconos/lunch4.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="S_RESIZE" />
-                           </cursor>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menú" textAlignment="CENTER" wrappingWidth="120.80338287353516">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <Separator prefWidth="200.0" />
-               </children>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="100.0" textAlignment="CENTER" underline="true" wrapText="true">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="93.0" fitWidth="119.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@iconos/Gente.png" />
                            </image>
@@ -116,68 +117,33 @@
                         </ImageView>
                      </graphic>
                   </Button>
-               </children>
-            </VBox>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Clientes" textAlignment="CENTER" wrappingWidth="120.80338287353516">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Separator prefWidth="200.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="100.0" textAlignment="CENTER" underline="true" wrapText="true">
+                  <Label text="CLIENTES">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="15.0" />
                      </font>
-                     <graphic>
-                        <ImageView fitHeight="93.0" fitWidth="119.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@iconos/fijo-n.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="S_RESIZE" />
-                           </cursor>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                  </Label>
                </children>
             </VBox>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reservaciones" textAlignment="CENTER" wrappingWidth="120.80338287353516">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Separator prefWidth="200.0" />
          </children>
       </VBox>
-      <ImageView fitHeight="194.0" fitWidth="148.0" layoutX="858.0" layoutY="473.0" opacity="0.44" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@iconos/Logo.png" />
-         </image>
-      </ImageView>
-      <Text layoutX="367.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LISTA DE PRODUCTOS" textAlignment="CENTER">
-         <font>
-            <Font size="28.0" />
-         </font>
-      </Text>
-      <TableView layoutX="175.0" layoutY="124.0" prefHeight="588.0" prefWidth="663.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Codigo" />
-          <TableColumn prefWidth="119.0" text="Item" />
-            <TableColumn prefWidth="137.66665649414062" text="Precio" />
-            <TableColumn minWidth="0.0" prefWidth="97.3333740234375" text="Tipo" />
-        </columns>
-      </TableView>
-      <VBox layoutX="867.0" layoutY="130.0" prefHeight="330.0" prefWidth="90.0">
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1024.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="77.0" prefWidth="90.0" text="Nuevo" />
-            <Separator prefHeight="35.0" prefWidth="97.0" />
-            <Button mnemonicParsing="false" prefHeight="77.0" prefWidth="90.0" text="Editar" />
-            <Separator prefHeight="33.0" prefWidth="97.0" />
-            <Button mnemonicParsing="false" prefHeight="77.0" prefWidth="90.0" text="Eliminar" />
-            <Separator prefHeight="40.0" prefWidth="97.0" />
+            <Label text="Productos">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
          </children>
-      </VBox>
+      </HBox>
+      <HBox alignment="CENTER" layoutY="60.0" prefHeight="40.0" prefWidth="1024.0">
+         <children>
+            <ToggleButton fx:id="productosTgl" mnemonicParsing="false" selected="true" text="Productos">
+               <toggleGroup>
+                  <ToggleGroup fx:id="productos" />
+               </toggleGroup>
+            </ToggleButton>
+            <ToggleButton fx:id="estadisticasTgl" mnemonicParsing="false" text="Estadisticas" toggleGroup="$productos" />
+         </children>
+      </HBox>
    </children>
 </Pane>

@@ -165,7 +165,7 @@ public class CajeroOrdenController {
     }
 
     private void goHome() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../views/cajero/VistaCajeroIncio.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/tablita/views/cajero/VistaCajeroIncio.fxml"));
         ViewsManager.cambiarVentana("TablitaPOS",root);
     }
 

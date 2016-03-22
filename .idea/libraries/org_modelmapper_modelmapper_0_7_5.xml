@@ -3,6 +3,7 @@
     <properties maven-id="org.modelmapper:modelmapper:0.7.5" />
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/modelmapper/modelmapper/0.7.5/modelmapper-0.7.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/modelmapper/modelmapper/0.7.5/modelmapper-0.7.5.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
